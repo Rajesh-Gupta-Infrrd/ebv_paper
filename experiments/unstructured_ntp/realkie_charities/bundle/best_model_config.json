@@ -1,0 +1,9 @@
+{
+  "charity_report": {
+    "model": "rf",
+    "ntp_rate_pct": 61.0,
+    "ntp_accuracy_pct": 90.0,
+    "error_catch_rate_pct": 78.9,
+    "errors_escaped": 439
+  }
+}

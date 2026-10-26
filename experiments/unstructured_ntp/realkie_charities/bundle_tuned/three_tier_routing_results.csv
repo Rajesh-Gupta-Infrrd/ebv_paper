@@ -1,0 +1,2 @@
+pair,fields_total,ntp_count,ntp_rate_pct,ntp_accuracy_pct,ntp_errors_escaped,llm_review_count,llm_review_rate_pct,llm_review_errors,human_review_count,human_review_rate_pct,error_catch_rate_pct,doc_type
+rf+gbm,7224,4124,57.1,91.2,361,555,7.7,154,2545,35.2,82.6,charity_report

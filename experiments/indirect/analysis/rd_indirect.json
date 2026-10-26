@@ -1,0 +1,43 @@
+{
+ "n": 287,
+ "good": 69,
+ "bad": 218,
+ "operating_point": "deployed trust>=85",
+ "fused_auroc": 0.872,
+ "caught_rate": 0.835,
+ "slip_rate": 0.165,
+ "FRONTIER_confidently_wrong": 0.106,
+ "frontier_n": 23,
+ "frontier_CI": [
+  0.065,
+  0.152
+ ],
+ "placebo": {
+  "real": 0.6926605504587156,
+  "placebo_mean": 0.0,
+  "placebo_std": 0.0
+ },
+ "detectability_map": {
+  "column explosion": {
+   "n": 94,
+   "catch@deployed": 0.83,
+   "auroc_vs_good": 0.869
+  },
+  "data loss": {
+   "n": 99,
+   "catch@deployed": 0.838,
+   "auroc_vs_good": 0.881
+  },
+  "scramble": {
+   "n": 22,
+   "catch@deployed": 0.818,
+   "auroc_vs_good": 0.845
+  },
+  "faithful": {
+   "n": 72,
+   "catch@deployed": 0.319,
+   "auroc_vs_good": 0.87
+  }
+ },
+ "note": "deployed-threshold view; structural-vs-witness per-channel complementarity pending scorer re-emit (pb_signals)"
+}

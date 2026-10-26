@@ -1,0 +1,100 @@
+{
+  "s1_filing": {
+    "(Header) Description of Securities": {
+      "gt_empty_rate": 0.9739,
+      "n": 6321
+    },
+    "(Header) Dividend Policy": {
+      "gt_empty_rate": 0.9771,
+      "n": 6321
+    },
+    "(Header) Prospectus Summary": {
+      "gt_empty_rate": 0.9764,
+      "n": 6321
+    },
+    "(Header) Risks To The Business": {
+      "gt_empty_rate": 0.9756,
+      "n": 6321
+    },
+    "Agent Address": {
+      "gt_empty_rate": 0.976,
+      "n": 6321
+    },
+    "Agent Name": {
+      "gt_empty_rate": 0.9764,
+      "n": 6321
+    },
+    "Agent Telephone": {
+      "gt_empty_rate": 0.9769,
+      "n": 6321
+    },
+    "Amount Registered": {
+      "gt_empty_rate": 0.9752,
+      "n": 6321
+    },
+    "Attorney Names": {
+      "gt_empty_rate": 0.9752,
+      "n": 6321
+    },
+    "Company Address": {
+      "gt_empty_rate": 0.976,
+      "n": 6321
+    },
+    "Company Name": {
+      "gt_empty_rate": 0.976,
+      "n": 6321
+    },
+    "Company Officer": {
+      "gt_empty_rate": 0.9671,
+      "n": 6321
+    },
+    "Company Officer Title": {
+      "gt_empty_rate": 0.9676,
+      "n": 6321
+    },
+    "Date of Prospectus": {
+      "gt_empty_rate": 0.9763,
+      "n": 6321
+    },
+    "Description of Securities (1st Para)": {
+      "gt_empty_rate": 0.9739,
+      "n": 6321
+    },
+    "Dividend Policy (1st Para)": {
+      "gt_empty_rate": 0.9769,
+      "n": 6321
+    },
+    "EIN": {
+      "gt_empty_rate": 0.9766,
+      "n": 6321
+    },
+    "Joint Book Runners": {
+      "gt_empty_rate": 0.9793,
+      "n": 6321
+    },
+    "Law Firm Address": {
+      "gt_empty_rate": 0.9747,
+      "n": 6321
+    },
+    "Law Firm Name": {
+      "gt_empty_rate": 0.9752,
+      "n": 6321
+    },
+    "Max Price": {
+      "gt_empty_rate": 0.9761,
+      "n": 6321
+    },
+    "Prospectus Summary (1st Para)": {
+      "gt_empty_rate": 0.968,
+      "n": 6321
+    },
+    "Risk Clauses": {
+      "gt_empty_rate": 0.1898,
+      "n": 6321
+    },
+    "Title of Security Registered": {
+      "gt_empty_rate": 0.9741,
+      "n": 6321
+    }
+  }
+}

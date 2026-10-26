@@ -1,0 +1,50 @@
+{
+  "v2_predROI": {
+    "buckets": {
+      "correct": 25564,
+      "B(kept-error)": 7171,
+      "C(kept-error)": 1382,
+      "A->correct": 2253
+    },
+    "fair_keepB": {
+      "n": 36370,
+      "err_rate": 0.2352,
+      "AUROC": 0.9935,
+      "cov@5%": 0.7363,
+      "cov@10%": 0.7363,
+      "cov@20%": 0.7363
+    },
+    "sensitivity_dropB": {
+      "n": 29199,
+      "err_rate": 0.0473,
+      "AUROC": 0.9935,
+      "cov@5%": 0.9171,
+      "cov@10%": 0.9171,
+      "cov@20%": 0.9171
+    }
+  },
+  "v3_gtROI_prod": {
+    "buckets": {
+      "correct": 25564,
+      "B(kept-error)": 7171,
+      "C(kept-error)": 1382,
+      "A->correct": 2253
+    },
+    "fair_keepB": {
+      "n": 36370,
+      "err_rate": 0.2352,
+      "AUROC": 0.9939,
+      "cov@5%": 0.6981,
+      "cov@10%": 0.6981,
+      "cov@20%": 0.6981
+    },
+    "sensitivity_dropB": {
+      "n": 29199,
+      "err_rate": 0.0473,
+      "AUROC": 0.9939,
+      "cov@5%": 0.8696,
+      "cov@10%": 0.8696,
+      "cov@20%": 0.8696
+    }
+  }
+}

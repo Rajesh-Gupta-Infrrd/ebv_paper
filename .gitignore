@@ -1,0 +1,52 @@
+# ---- Raw public datasets (re-downloadable; CC-BY-NC / dataset licenses — not redistributed in git) ----
+experiments/datasets/
+
+# ---- Python environments & caches ----
+**/.venv/
+**/venv/
+**/__pycache__/
+*.pyc
+**/_cache/
+**/*_cache*.json
+**/*doctr_token_cache*
+
+# ---- Logs & OS cruft ----
+**/logs/
+*.log
+.DS_Store
+
+# ---- Large regenerable binaries ----
+**/bundle*/models/*.joblib
+
+# ---- Local safety archives (superseded material kept locally, not in git) ----
+experiments/_archive/
+
+# ---- Large image/evidence crop sets (the small adj_crops sample is kept) ----
+**/omnidoc_crops/
+
+# ---- Large experiment DATA / intermediates / model binaries ----
+# (keep code + docs + computed findings json + small metrics/CSVs; exclude raw inputs & intermediates)
+**/data/
+**/data_clean/
+**/data_noisy/
+**/scored/
+**/scored_clean/
+**/scored_noisy/
+**/scored_test/
+**/meta/
+**/splits/
+**/inputs/
+**/labels/
+**/golden/
+**/roi_models/
+**/matrix/
+**/task1_*/
+**/task3a_*/
+**/task3b_*/
+**/ablation/
+**/gt_clean/
+**/results/
+**/bundle*/models/
+**/bundle*/predictions/
+**/*.joblib
+**/*.jsonl

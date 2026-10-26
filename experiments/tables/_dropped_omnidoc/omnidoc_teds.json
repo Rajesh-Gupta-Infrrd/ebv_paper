@@ -1,0 +1,858 @@
+[
+ {
+  "case": "page-5d58cdf7-6d00-4ea5-97b2-358cbc0cab21",
+  "trust_before": 55.56,
+  "teds": 0.9125,
+  "status": "refined",
+  "eq": 0,
+  "gtlen": 6859
+ },
+ {
+  "case": "docstructbench_llm-raw-scihub-o.O-s001280000131.pdf_5",
+  "trust_before": 72.37,
+  "teds": 0.1245,
+  "status": "kept_original",
+  "eq": 102,
+  "gtlen": 1938
+ },
+ {
+  "case": "color_textbook_zhonggaokao_\u5c0f\u5b66_13.\u4eba\u6559\u65b0\u8d77\u70b9\u82f1\u8bed\uff084-5\u5e74\u7ea7\uff09_\u4eba\u6559\u65b0\u8d77\u70b9\u4e94\u5e74\u7ea7\u82f1\u8bed\u4e0a\u518c_\u8bfe\u672c_\u4eba\u6559\u65b0\u8d77\u70b9\u82f1\u8bed5A\u7535\u5b50\u8bfe\u672c_page_056",
+  "trust_before": 61.3,
+  "teds": 0.6196,
+  "status": "kept_original",
+  "eq": 0,
+  "gtlen": 243
+ },
+ {
+  "case": "docstructbench_llm-raw-scihub-o.O-s00128-007-9171-1.pdf_3",
+  "trust_before": 79.67,
+  "teds": 0.9413,
+  "status": "kept_original",
+  "eq": 0,
+  "gtlen": 4180
+ },
+ {
+  "case": "docstructbench_enbook-zlib-o.O-17761417.pdf_894",
+  "trust_before": 95.3,
+  "teds": 0.885,
+  "status": "accepted_original",
+  "eq": 0,
+  "gtlen": 2953
+ },
+ {
+  "case": "scihub_s00784-003-0233-4.pdf_1",
+  "trust_before": 86.56,
+  "teds": 0.9995,
+  "status": "accepted_original",
+  "eq": 0,
+  "gtlen": 5144
+ },
+ {
+  "case": "scihub_iccwamtip51612.2020.9317329.pdf_4",
+  "trust_before": 71.67,
+  "teds": 1.0,
+  "status": "kept_original",
+  "eq": 0,
+  "gtlen": 768
+ },
+ {
+  "case": "page-9390721f-e06c-47ea-8b21-0f27c72df7b7",
+  "trust_before": 42.53,
+  "teds": 0.9925,
+  "status": "refined",
+  "eq": 0,
+  "gtlen": 6638
+ },
+ {
+  "case": "docstructbench_llm-raw-scihub-o.O-j.1444-2906.2002.00466.x.pdf_4",
+  "trust_before": 77.83,
+  "teds": 0.9495,
+  "status": "refined",
+  "eq": 72,
+  "gtlen": 1300
+ },
+ {
+  "case": "yanbaopptmerge_3aa9b6677e17fd012b0a7a230b9f18db.pdf_1327",
+  "trust_before": 71.67,
+  "teds": 0.9454,
+  "status": "kept_original",
+  "eq": 4,
+  "gtlen": 392
+ },
+ {
+  "case": "scihub_s00894-012-1568-z.pdf_2",
+  "trust_before": 72.87,
+  "teds": 0.5149,
+  "status": "kept_original",
+  "eq": 8,
+  "gtlen": 777
+ },
+ {
+  "case": "scihub_s00381-021-05138-3.pdf_3",
+  "trust_before": 53.85,
+  "teds": 0.9934,
+  "status": "kept_original",
+  "eq": 0,
+  "gtlen": 3485
+ },
+ {
+  "case": "page-eff3dc3a-8d44-4c68-9c3a-55df4aaf1e36",
+  "trust_before": 27.25,
+  "teds": 0.9809,
+  "status": "refined",
+  "eq": 10,
+  "gtlen": 6239
+ },
+ {
+  "case": "page-49746735-505c-442d-b3f6-c55b1bf9e48b",
+  "trust_before": 75.0,
+  "teds": 0.9114,
+  "status": "kept_original",
+  "eq": 4,
+  "gtlen": 2972
+ },
+ {
+  "case": "page-cb30bac7-d4bd-47d0-ac84-e0b46d051fe9",
+  "trust_before": 71.67,
+  "teds": 0.7104,
+  "status": "kept_original",
+  "eq": 10,
+  "gtlen": 1123
+ },
+ {
+  "case": "docstructbench_llm-raw-scihub-o.O-s003950050126.pdf_6",
+  "trust_before": 17.92,
+  "teds": 0.9938,
+  "status": "refined",
+  "eq": 0,
+  "gtlen": 4411
+ },
+ {
+  "case": "docstructbench_llm-raw-scihub-o.O-chem.200700285.pdf_4",
+  "trust_before": 71.67,
+  "teds": 0.7665,
+  "status": "kept_original",
+  "eq": 18,
+  "gtlen": 726
+ },
+ {
+  "case": "scihub_jb%2Fmvh022.pdf_1",
+  "trust_before": 65.89,
+  "teds": 0.9828,
+  "status": "refined",
+  "eq": 0,
+  "gtlen": 2208
+ },
+ {
+  "case": "yanbaopptmerge_d4fc7cba428625974e93183edfccea73.pdf_89",
+  "trust_before": 75.83,
+  "teds": 0.9253,
+  "status": "refined",
+  "eq": 34,
+  "gtlen": 1059
+ },
+ {
+  "case": "jiaocaineedrop_jiaocai_needrop_en_1898",
+  "trust_before": 67.96,
+  "teds": 1.0,
+  "status": "kept_original",
+  "eq": 0,
+  "gtlen": 1170
+ },
+ {
+  "case": "jiaocaineedrop_chap5.pdf_4",
+  "trust_before": 79.32,
+  "teds": 0.9772,
+  "status": "kept_original",
+  "eq": 24,
+  "gtlen": 864
+ },
+ {
+  "case": "newspaper_2a6b4fa088699701a6fa9ccecfb5c25d_2",
+  "trust_before": 27.24,
+  "teds": 0.9366,
+  "status": "kept_original",
+  "eq": 0,
+  "gtlen": 1665
+ },
+ {
+  "case": "jiaocai_jiaocai_en_91",
+  "trust_before": 100.0,
+  "teds": 1.0,
+  "status": "accepted_original",
+  "eq": 0,
+  "gtlen": 96
+ },
+ {
+  "case": "PPT_Catalysis.ppt_page_016",
+  "trust_before": 56.7,
+  "teds": 0.2497,
+  "status": "refined",
+  "eq": 40,
+  "gtlen": 906
+ },
+ {
+  "case": "scihub_TNANO.2007.893575.pdf_0",
+  "trust_before": 73.73,
+  "teds": 0.7233,
+  "status": "refined",
+  "eq": 24,
+  "gtlen": 709
+ },
+ {
+  "case": "color_textbook_zhonggaokao_\u5c0f\u5b66_13.\u4eba\u6559\u65b0\u8d77\u70b9\u82f1\u8bed\uff084-5\u5e74\u7ea7\uff09_\u4eba\u6559\u65b0\u8d77\u70b9\u4e94\u5e74\u7ea7\u82f1\u8bed\u4e0b\u518c_\u8bfe\u672c_\u4eba\u6559\u65b0\u8d77\u70b9\u82f1\u8bed5B\u7535\u5b50\u8bfe\u672c_page_036",
+  "trust_before": 59.62,
+  "teds": 0.8929,
+  "status": "refined",
+  "eq": 0,
+  "gtlen": 303
+ },
+ {
+  "case": "scihub_j.jmb.2003.10.009.pdf_4",
+  "trust_before": 53.97,
+  "teds": 0.9333,
+  "status": "refined",
+  "eq": 10,
+  "gtlen": 1365
+ },
+ {
+  "case": "page-d2cdac80-318c-4157-ac6e-bdab333f66bd",
+  "trust_before": 48.24,
+  "teds": 0.9904,
+  "status": "refined",
+  "eq": 0,
+  "gtlen": 1226
+ },
+ {
+  "case": "docstructbench_llm-raw-scihub-o.O-s00348-003-0689-7.pdf_3",
+  "trust_before": 71.67,
+  "teds": 0.9607,
+  "status": "kept_original",
+  "eq": 0,
+  "gtlen": 228
+ },
+ {
+  "case": "page-38fc7c6b-80ed-46be-bb53-29986a63ad3e",
+  "trust_before": 32.14,
+  "teds": 0.9558,
+  "status": "refined",
+  "eq": 0,
+  "gtlen": 6693
+ },
+ {
+  "case": "page-dbed9c07-e155-4ba1-92f9-a2962dc9a8f9",
+  "trust_before": 49.78,
+  "teds": 0.2724,
+  "status": "refined",
+  "eq": 102,
+  "gtlen": 4299
+ },
+ {
+  "case": "PPT_8076_MEYER_Chapter_2_-_Language_Change_page_012",
+  "trust_before": 41.33,
+  "teds": 0.0617,
+  "status": "kept_original",
+  "eq": 0,
+  "gtlen": 344
+ },
+ {
+  "case": "color_textbook_zhonggaokao_\u5c0f\u5b66_13.\u4eba\u6559\u65b0\u8d77\u70b9\u82f1\u8bed\uff084-5\u5e74\u7ea7\uff09_\u4eba\u6559\u65b0\u8d77\u70b9\u4e94\u5e74\u7ea7\u82f1\u8bed\u4e0b\u518c_\u8bfe\u672c_\u4eba\u6559\u65b0\u8d77\u70b9\u82f1\u8bed5B\u7535\u5b50\u8bfe\u672c_page_076",
+  "trust_before": 65.0,
+  "teds": 0.9524,
+  "status": "kept_original",
+  "eq": 0,
+  "gtlen": 560
+ },
+ {
+  "case": "yanbaor2_ey-global-fintech-adoption-index.pdf_30",
+  "trust_before": 81.22,
+  "teds": 0.9995,
+  "status": "kept_original",
+  "eq": 0,
+  "gtlen": 896
+ },
+ {
+  "case": "docstructbench_llm-raw-scihub-o.O-j.chroma.2005.05.085.pdf_4",
+  "trust_before": 48.63,
+  "teds": 0.9984,
+  "status": "refined",
+  "eq": 0,
+  "gtlen": 1317
+ },
+ {
+  "case": "newspaper_fe5ed29024932fad071afc53807b16ba_4",
+  "trust_before": 73.65,
+  "teds": 0.879,
+  "status": "kept_original",
+  "eq": 5,
+  "gtlen": 778
+ },
+ {
+  "case": "docstructbench_llm-raw-the-eye-o.O-chap08.pdf_12",
+  "trust_before": 72.6,
+  "teds": 0.9945,
+  "status": "kept_original",
+  "eq": 0,
+  "gtlen": 593
+ },
+ {
+  "case": "jiaocaineedrop_chem-323236.pdf_183",
+  "trust_before": 73.93,
+  "teds": 0.9841,
+  "status": "kept_original",
+  "eq": 2,
+  "gtlen": 314
+ },
+ {
+  "case": "docstructbench_llm-raw-scihub-o.O-j.chroma.2005.03.134.pdf_6",
+  "trust_before": 62.04,
+  "teds": 0.9861,
+  "status": "kept_original",
+  "eq": 14,
+  "gtlen": 3923
+ },
+ {
+  "case": "page-0cbdcfa9-3248-4e54-8704-2bc73e6d29e7",
+  "trust_before": 99.54,
+  "teds": 1.0,
+  "status": "accepted_original",
+  "eq": 0,
+  "gtlen": 5658
+ },
+ {
+  "case": "PPT_8076_MEYER_Chapter_2_-_Language_Change_page_014",
+  "trust_before": 73.26,
+  "teds": 0.867,
+  "status": "kept_original",
+  "eq": 0,
+  "gtlen": 542
+ },
+ {
+  "case": "scihub_j.ejcts.2011.04.042.pdf_3",
+  "trust_before": 71.67,
+  "teds": 0.9759,
+  "status": "kept_original",
+  "eq": 0,
+  "gtlen": 845
+ },
+ {
+  "case": "scihub_j.cbpb.2019.110324.pdf_6",
+  "trust_before": 75.53,
+  "teds": 0.9565,
+  "status": "kept_original",
+  "eq": 0,
+  "gtlen": 631
+ },
+ {
+  "case": "scihub_s12237-014-9873-7.pdf_4",
+  "trust_before": 71.93,
+  "teds": 0.299,
+  "status": "kept_original",
+  "eq": 303,
+  "gtlen": 4780
+ },
+ {
+  "case": "page-2deb83b3-abe2-442c-a544-0b6a8db464f1",
+  "trust_before": 64.17,
+  "teds": 0.8282,
+  "status": "refined",
+  "eq": 108,
+  "gtlen": 2622
+ },
+ {
+  "case": "jiaocaineedrop_Chapter9.pdf_46",
+  "trust_before": 71.67,
+  "teds": 1.0,
+  "status": "kept_original",
+  "eq": 4,
+  "gtlen": 248
+ },
+ {
+  "case": "page-f9583127-1277-4424-be9d-35430e0aedd6",
+  "trust_before": 73.05,
+  "teds": 0.9918,
+  "status": "refined",
+  "eq": 10,
+  "gtlen": 517
+ },
+ {
+  "case": "scihub_carcin%2Fbgh032.pdf_2",
+  "trust_before": 66.64,
+  "teds": 0.6236,
+  "status": "kept_original",
+  "eq": 36,
+  "gtlen": 1734
+ },
+ {
+  "case": "docstructbench_llm-raw-the-eye-o.O-1995_2418.pdf_1",
+  "trust_before": 54.94,
+  "teds": 0.9774,
+  "status": "kept_original",
+  "eq": 0,
+  "gtlen": 401
+ },
+ {
+  "case": "docstructbench_llm-raw-scihub-o.O-s00396-003-0935-9.pdf_2",
+  "trust_before": 78.36,
+  "teds": 0.9965,
+  "status": "kept_original",
+  "eq": 0,
+  "gtlen": 1162
+ },
+ {
+  "case": "color_textbook_zhonggaokao_\u5c0f\u5b66_13.\u4eba\u6559\u65b0\u8d77\u70b9\u82f1\u8bed\uff084-5\u5e74\u7ea7\uff09_\u4eba\u6559\u65b0\u8d77\u70b9\u4e94\u5e74\u7ea7\u82f1\u8bed\u4e0a\u518c_\u8bfe\u672c_\u4eba\u6559\u65b0\u8d77\u70b9\u82f1\u8bed5A\u7535\u5b50\u8bfe\u672c_page_006",
+  "trust_before": 61.67,
+  "teds": 0.913,
+  "status": "refined",
+  "eq": 0,
+  "gtlen": 504
+ },
+ {
+  "case": "docstructbench_llm-raw-scihub-o.O-hup.908.pdf_5",
+  "trust_before": 71.67,
+  "teds": 1.0,
+  "status": "kept_original",
+  "eq": 0,
+  "gtlen": 887
+ },
+ {
+  "case": "jiaocaineedrop_chap02.pdf_16",
+  "trust_before": 71.67,
+  "teds": 1.0,
+  "status": "kept_original",
+  "eq": 0,
+  "gtlen": 185
+ },
+ {
+  "case": "page-232d386f-6c9d-4b50-9463-89dedce995e5",
+  "trust_before": 72.33,
+  "teds": 0.9239,
+  "status": "refined",
+  "eq": 90,
+  "gtlen": 1557
+ },
+ {
+  "case": "page-458ab820-615f-42fe-af33-3a8fb15ad691",
+  "trust_before": 80.07,
+  "teds": 0.993,
+  "status": "refined",
+  "eq": 8,
+  "gtlen": 6724
+ },
+ {
+  "case": "scihub_AEM.01420-09.pdf_3",
+  "trust_before": 14.77,
+  "teds": 0.7953,
+  "status": "kept_original",
+  "eq": 34,
+  "gtlen": 3666
+ },
+ {
+  "case": "docstructbench_llm-raw-scihub-o.O-ceat.200600266.pdf_2",
+  "trust_before": 67.0,
+  "teds": 0.9514,
+  "status": "kept_original",
+  "eq": 6,
+  "gtlen": 290
+ },
+ {
+  "case": "page-35ecd651-17dd-43e6-8a6f-8f55d6796d96",
+  "trust_before": 65.01,
+  "teds": 0.9931,
+  "status": "kept_original",
+  "eq": 4,
+  "gtlen": 5373
+ },
+ {
+  "case": "page-573c437e-c309-4483-a038-ef2f440b104a",
+  "trust_before": 77.12,
+  "teds": 0.7825,
+  "status": "refined",
+  "eq": 28,
+  "gtlen": 1003
+ },
+ {
+  "case": "docstructbench_llm-raw-scihub-o.O-s00128-010-0006-0.pdf_5",
+  "trust_before": 73.35,
+  "teds": 0.8151,
+  "status": "kept_original",
+  "eq": 6,
+  "gtlen": 1605
+ },
+ {
+  "case": "scihub_ie102256j.pdf_4",
+  "trust_before": 71.67,
+  "teds": 0.948,
+  "status": "kept_original",
+  "eq": 18,
+  "gtlen": 641
+ },
+ {
+  "case": "jiaocaineedrop_ced6f3c05e1dfefa8455fa60aacdd2d76ffd79489b631c2dbde22a74e927544b.pdf_84",
+  "trust_before": 77.24,
+  "teds": 0.9746,
+  "status": "refined",
+  "eq": 10,
+  "gtlen": 2326
+ },
+ {
+  "case": "jiaocaineedrop_2005_QP.pdf_5",
+  "trust_before": 67.0,
+  "teds": 0.9602,
+  "status": "kept_original",
+  "eq": 2,
+  "gtlen": 204
+ },
+ {
+  "case": "book_en_[\u642c\u4e66\u5320#893][Pyomo\u2014Optimization Modeling in Python].2012.\u82f1\u6587\u7248_page_188",
+  "trust_before": 76.7,
+  "teds": 0.9783,
+  "status": "kept_original",
+  "eq": 0,
+  "gtlen": 936
+ },
+ {
+  "case": "docstructbench_llm-raw-scihub-o.O-s00374-004-0768-9.pdf_2",
+  "trust_before": 51.71,
+  "teds": 0.9777,
+  "status": "refined",
+  "eq": 18,
+  "gtlen": 1692
+ },
+ {
+  "case": "page-1cecd66d-3563-422a-a204-999bba0bb528",
+  "trust_before": 12.25,
+  "teds": 0.9694,
+  "status": "refined",
+  "eq": 54,
+  "gtlen": 4168
+ },
+ {
+  "case": "page-5cb4b2fe-c14d-450e-9b97-4b6e7c99493b",
+  "trust_before": 24.69,
+  "teds": 0.9553,
+  "status": "refined",
+  "eq": 50,
+  "gtlen": 7091
+ },
+ {
+  "case": "scihub_bloodadvances.2019030924.pdf_3",
+  "trust_before": 73.48,
+  "teds": 0.373,
+  "status": "refined",
+  "eq": 2,
+  "gtlen": 1524
+ },
+ {
+  "case": "page-f8c08102-a96d-4533-b3a1-dac6020513b5",
+  "trust_before": 81.08,
+  "teds": 0.9638,
+  "status": "refined",
+  "eq": 18,
+  "gtlen": 6064
+ },
+ {
+  "case": "scihub_mol.66.4.921.pdf_1",
+  "trust_before": 63.48,
+  "teds": 0.9604,
+  "status": "kept_original",
+  "eq": 0,
+  "gtlen": 2318
+ },
+ {
+  "case": "page-f3e750d8-8201-4a22-9419-9776798b7a32",
+  "trust_before": 31.69,
+  "teds": 0.8877,
+  "status": "refined",
+  "eq": 2,
+  "gtlen": 11270
+ },
+ {
+  "case": "scihub_ijcac.2012040101.pdf_5",
+  "trust_before": 71.67,
+  "teds": 1.0,
+  "status": "kept_original",
+  "eq": 0,
+  "gtlen": 334
+ },
+ {
+  "case": "docstructbench_llm-raw-scihub-o.O-s0167-8655%2801%2900019-8.pdf_10",
+  "trust_before": 72.84,
+  "teds": 0.9835,
+  "status": "kept_original",
+  "eq": 0,
+  "gtlen": 1800
+ },
+ {
+  "case": "newspaper_The Times UK_0801@magazinesclubnew_page_031",
+  "trust_before": 71.67,
+  "teds": 0.9001,
+  "status": "kept_original",
+  "eq": 0,
+  "gtlen": 626
+ },
+ {
+  "case": "scihub_jgh.13044.pdf_2",
+  "trust_before": 59.04,
+  "teds": 0.4386,
+  "status": "refined",
+  "eq": 50,
+  "gtlen": 2189
+ },
+ {
+  "case": "yanbaopptmerge_PattPatelCh12.pdf_27",
+  "trust_before": 73.54,
+  "teds": 1.0,
+  "status": "kept_original",
+  "eq": 0,
+  "gtlen": 339
+ },
+ {
+  "case": "PPT_LEP power point presentation-English-FINAL-10-31-07_page_010",
+  "trust_before": 68.88,
+  "teds": 0.9485,
+  "status": "kept_original",
+  "eq": 0,
+  "gtlen": 1612
+ },
+ {
+  "case": "docstructbench_llm-raw-scihub-o.O-s10653-010-9369-8.pdf_11",
+  "trust_before": 83.55,
+  "teds": 0.9903,
+  "status": "kept_original",
+  "eq": 8,
+  "gtlen": 3977
+ },
+ {
+  "case": "jiaocai_jiaocai_en_595",
+  "trust_before": 65.73,
+  "teds": 0.9689,
+  "status": "kept_original",
+  "eq": 0,
+  "gtlen": 594
+ },
+ {
+  "case": "scihub_ijop.12033.pdf_5",
+  "trust_before": 77.16,
+  "teds": 0.9977,
+  "status": "kept_original",
+  "eq": 0,
+  "gtlen": 2010
+ },
+ {
+  "case": "scihub_j.jallcom.2003.09.015.pdf_1",
+  "trust_before": 25.22,
+  "teds": 0.8411,
+  "status": "refined",
+  "eq": 64,
+  "gtlen": 2649
+ },
+ {
+  "case": "PPT_8076_MEYER_Chapter_2_-_Language_Change_page_021",
+  "trust_before": 71.67,
+  "teds": 0.9375,
+  "status": "kept_original",
+  "eq": 0,
+  "gtlen": 375
+ },
+ {
+  "case": "PPT_LEP power point presentation-English-FINAL-10-31-07_page_011",
+  "trust_before": 38.73,
+  "teds": 0.9321,
+  "status": "refined",
+  "eq": 0,
+  "gtlen": 1362
+ },
+ {
+  "case": "scihub_journal.pone.0166577.pdf_5",
+  "trust_before": 56.82,
+  "teds": 0.9584,
+  "status": "kept_original",
+  "eq": 4,
+  "gtlen": 6403
+ },
+ {
+  "case": "page-213e6a57-ba81-4afb-8184-2e1cf2a7664d",
+  "trust_before": 61.88,
+  "teds": 0.9164,
+  "status": "kept_original",
+  "eq": 8,
+  "gtlen": 10326
+ },
+ {
+  "case": "page-28c45f5f-7e0d-464a-89ec-8de3a4abb927",
+  "trust_before": 66.5,
+  "teds": 0.9662,
+  "status": "refined",
+  "eq": 0,
+  "gtlen": 1213
+ },
+ {
+  "case": "page-ddb9d794-5230-4b43-b1ec-273b9e7ebc11",
+  "trust_before": 79.91,
+  "teds": 1.0,
+  "status": "kept_original",
+  "eq": 0,
+  "gtlen": 1261
+ },
+ {
+  "case": "color_textbook_zhonggaokao_\u5c0f\u5b66_13.\u4eba\u6559\u65b0\u8d77\u70b9\u82f1\u8bed\uff084-5\u5e74\u7ea7\uff09_\u4eba\u6559\u65b0\u8d77\u70b9\u4e94\u5e74\u7ea7\u82f1\u8bed\u4e0b\u518c_\u8bfe\u672c_\u4eba\u6559\u65b0\u8d77\u70b9\u82f1\u8bed5B\u7535\u5b50\u8bfe\u672c_page_011",
+  "trust_before": 52.4,
+  "teds": 0.6552,
+  "status": "kept_original",
+  "eq": 0,
+  "gtlen": 365
+ },
+ {
+  "case": "page-035cb436-c01e-41db-b40e-8977678777eb",
+  "trust_before": 15.24,
+  "teds": 0.243,
+  "status": "refined",
+  "eq": 0,
+  "gtlen": 6395
+ },
+ {
+  "case": "newspaper_bf784eedb0c377adb9a0f286954af785_2",
+  "trust_before": 63.2,
+  "teds": 0.9905,
+  "status": "kept_original",
+  "eq": 0,
+  "gtlen": 1403
+ },
+ {
+  "case": "docstructbench_llm-raw-scihub-o.O-hup.777.pdf_7",
+  "trust_before": 86.5,
+  "teds": 0.9282,
+  "status": "accepted_original",
+  "eq": 18,
+  "gtlen": 4626
+ },
+ {
+  "case": "scihub_s11661-013-1726-7.pdf_2",
+  "trust_before": 50.21,
+  "teds": 0.7525,
+  "status": "refined",
+  "eq": 44,
+  "gtlen": 802
+ },
+ {
+  "case": "docstructbench_llm-raw-scihub-o.O-ceat.200407001.pdf_3",
+  "trust_before": 63.33,
+  "teds": 0.3872,
+  "status": "refined",
+  "eq": 20,
+  "gtlen": 939
+ },
+ {
+  "case": "yanbaopptmerge_d346b889f1d85c61950a71d4b0ac2752.pdf_89",
+  "trust_before": 55.33,
+  "teds": 1.0,
+  "status": "kept_original",
+  "eq": 0,
+  "gtlen": 282
+ },
+ {
+  "case": "scihub_j.1528-1167.2008.01552.x.pdf_3",
+  "trust_before": 71.89,
+  "teds": 0.751,
+  "status": "kept_original",
+  "eq": 4,
+  "gtlen": 2209
+ },
+ {
+  "case": "page-50ffe5d2-cd27-449a-a813-d4a8c44b12ea",
+  "trust_before": 46.08,
+  "teds": 0.9837,
+  "status": "kept_original",
+  "eq": 4,
+  "gtlen": 6004
+ },
+ {
+  "case": "page-1955f827-fb35-4806-b3a4-463d9e0d6cc8",
+  "trust_before": 66.81,
+  "teds": 0.1833,
+  "status": "refined",
+  "eq": 16,
+  "gtlen": 3560
+ },
+ {
+  "case": "docstructbench_llm-raw-scihub-o.O-s00374-003-0589-2.pdf_6",
+  "trust_before": 69.33,
+  "teds": 0.9112,
+  "status": "kept_original",
+  "eq": 12,
+  "gtlen": 872
+ },
+ {
+  "case": "scihub_jps.21547.pdf_7",
+  "trust_before": 63.67,
+  "teds": 0.9468,
+  "status": "kept_original",
+  "eq": 0,
+  "gtlen": 572
+ },
+ {
+  "case": "page-14a6b411-9097-4eec-86da-92075868d243",
+  "trust_before": 74.43,
+  "teds": 0.9529,
+  "status": "kept_original",
+  "eq": 2,
+  "gtlen": 6116
+ },
+ {
+  "case": "page-fd04ea51-677c-4de2-8e8e-adfd791e2957",
+  "trust_before": 43.67,
+  "teds": 1.0,
+  "status": "kept_original",
+  "eq": 0,
+  "gtlen": 672
+ },
+ {
+  "case": "jiaocaineedrop_biz-96816.pdf_48",
+  "trust_before": 71.67,
+  "teds": 0.9984,
+  "status": "kept_original",
+  "eq": 0,
+  "gtlen": 512
+ },
+ {
+  "case": "docstructbench_llm-raw-scihub-o.O-hup.777.pdf_8",
+  "trust_before": 67.54,
+  "teds": 0.9255,
+  "status": "refined",
+  "eq": 18,
+  "gtlen": 2437
+ },
+ {
+  "case": "page-f222e5f3-8628-47cd-a0b6-40f62123228f",
+  "trust_before": 57.95,
+  "teds": 0.9616,
+  "status": "refined",
+  "eq": 32,
+  "gtlen": 6704
+ },
+ {
+  "case": "page-be2ebf31-5f24-4d3e-97f0-4a8df7e773b4",
+  "trust_before": 15.01,
+  "teds": 0.932,
+  "status": "refined",
+  "eq": 0,
+  "gtlen": 5844
+ },
+ {
+  "case": "docstructbench_llm-raw-the-eye-o.O-TraneGuide.pdf_7",
+  "trust_before": 67.76,
+  "teds": 0.9941,
+  "status": "refined",
+  "eq": 0,
+  "gtlen": 1215
+ },
+ {
+  "case": "page-52e82aa9-7bd7-4683-8adc-520cae0291e0",
+  "trust_before": 53.71,
+  "teds": 1.0,
+  "status": "kept_original",
+  "eq": 0,
+  "gtlen": 308
+ }
+]

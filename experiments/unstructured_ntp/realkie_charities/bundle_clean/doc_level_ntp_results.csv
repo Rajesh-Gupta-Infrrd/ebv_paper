@@ -1,0 +1,6 @@
+docs_total,docs_ntp,doc_ntp_rate_pct,doc_ntp_accuracy_pct,doc_errors_escaped,doc_errors_caught,doc_error_catch_rate_pct,docs_to_review,doc_review_rate_pct,method,doc_type
+258,154,59.7,7.1,143,103,41.9,104,40.3,current_system_t0.3,charity_report
+258,19,7.4,26.3,14,232,94.3,239,92.6,current_system_t0.5,charity_report
+258,0,0.0,0.0,0,246,100.0,258,100.0,current_system_t0.7,charity_report
+258,0,0.0,0.0,0,246,100.0,258,100.0,rf,charity_report
+258,0,0.0,0.0,0,246,100.0,258,100.0,gbm,charity_report

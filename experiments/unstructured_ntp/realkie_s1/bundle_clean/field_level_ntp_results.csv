@@ -1,0 +1,7 @@
+fields_total,fields_ntp,ntp_rate_pct,ntp_accuracy_pct,errors_escaped,errors_caught,error_catch_rate_pct,fields_to_review,review_rate_pct,review_yield_pct,unnecessary_reviews,method,doc_type
+148792,148462,99.8,95.2,7053,139,1.9,330,0.2,2137.3,191,current_system_t0.3,s1_filing
+148792,144913,97.4,97.1,4232,2960,41.2,3879,2.6,109.1,919,current_system_t0.5,s1_filing
+148792,924,0.6,79.0,194,6998,97.3,147868,99.4,0.1,140870,current_system_t0.7,s1_filing
+148792,139430,93.7,99.7,440,6752,93.9,9362,6.3,4.7,2610,rf,s1_filing
+148792,139471,93.7,99.7,451,6741,93.7,9321,6.3,4.8,2580,gbm,s1_filing
+148792,144913,97.4,97.1,4232,2960,41.2,3879,2.6,109.1,919,current_system_matched_t0.495,s1_filing

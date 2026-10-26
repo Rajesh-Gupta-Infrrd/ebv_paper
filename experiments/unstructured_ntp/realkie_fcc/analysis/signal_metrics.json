@@ -1,0 +1,93 @@
+{
+  "all": {
+    "binary": {
+      "n": 484,
+      "wrong": 140,
+      "err_rate": 0.2893,
+      "error_catch": 0.8929,
+      "false_alarm": 0.5349,
+      "route_prec": 0.4045,
+      "accuracy": 0.5888,
+      "AUROC": 0.7576,
+      "cov@5%": 0.0517,
+      "cov@10%": 0.4669,
+      "cov@20%": 0.781
+    },
+    "3tier": {
+      "n": 484,
+      "wrong": 140,
+      "err_rate": 0.2893,
+      "error_catch": 0.9071,
+      "false_alarm": 0.5901,
+      "route_prec": 0.3848,
+      "accuracy": 0.5537,
+      "AUROC": 0.7576,
+      "cov@5%": 0.0517,
+      "cov@10%": 0.4669,
+      "cov@20%": 0.781
+    }
+  },
+  "scalar": {
+    "binary": {
+      "n": 264,
+      "wrong": 51,
+      "err_rate": 0.1932,
+      "error_catch": 0.8627,
+      "false_alarm": 0.4554,
+      "route_prec": 0.3121,
+      "accuracy": 0.6061,
+      "AUROC": 0.8036,
+      "cov@5%": 0.3864,
+      "cov@10%": 0.7159,
+      "cov@20%": 1.0
+    },
+    "3tier": {
+      "n": 264,
+      "wrong": 51,
+      "err_rate": 0.1932,
+      "error_catch": 0.8824,
+      "false_alarm": 0.507,
+      "route_prec": 0.2941,
+      "accuracy": 0.5682,
+      "AUROC": 0.8036,
+      "cov@5%": 0.3864,
+      "cov@10%": 0.7159,
+      "cov@20%": 1.0
+    }
+  },
+  "sufficiency": {
+    "empty_prior_applied": 0,
+    "gated": 11,
+    "tier3_breakdown": {
+      "NTP": 154,
+      "LLM_REVIEW": 97,
+      "HUMAN_REVIEW": 233
+    }
+  },
+  "per_signal_mean": {
+    "format_valid": {
+      "mean_correct": 0.768,
+      "mean_wrong": 0.747
+    },
+    "keyword_context": {
+      "mean_correct": 0.552,
+      "mean_wrong": 0.313
+    },
+    "source_context": {
+      "mean_correct": 0.648,
+      "mean_wrong": 0.529
+    },
+    "value_in_text": {
+      "mean_correct": 0.94,
+      "mean_wrong": 0.957
+    },
+    "label_value_distance": {
+      "mean_correct": 0.693,
+      "mean_wrong": 0.633
+    },
+    "partial_extraction": {
+      "mean_correct": 0.5,
+      "mean_wrong": null
+    }
+  }
+}

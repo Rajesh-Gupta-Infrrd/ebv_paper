@@ -1,0 +1,3 @@
+doc_type,method,split,fields_total,fields_ntp,ntp_rate_pct,ntp_accuracy_pct,errors_escaped,errors_caught,error_catch_rate_pct,fields_to_review,review_rate_pct,review_yield_pct,unnecessary_reviews,doc_docs_total,doc_docs_ntp,doc_doc_ntp_rate_pct,doc_doc_ntp_accuracy_pct,doc_doc_errors_escaped,doc_doc_errors_caught,doc_doc_error_catch_rate_pct,doc_docs_to_review,doc_doc_review_rate_pct
+nda,rf,test,117,75,64.1,86.7,10,28,73.7,42,35.9,23.8,14,88,49,55.7,85.7,7,27,79.4,39,44.3
+nda,gbm,test,117,77,65.8,84.4,12,26,68.4,40,34.2,30.0,14,88,49,55.7,81.6,9,25,73.5,39,44.3

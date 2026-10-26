@@ -1,0 +1,13 @@
+{
+  "nda": {
+    "model1": "rf",
+    "model2": "gbm",
+    "ntp_rate_pct": 60.9,
+    "ntp_accuracy_pct": 88.7,
+    "ntp_errors_escaped": 41,
+    "llm_review_rate_pct": 3.4,
+    "llm_review_errors": 6,
+    "human_review_rate_pct": 35.7,
+    "error_catch_rate_pct": 79.7
+  }
+}

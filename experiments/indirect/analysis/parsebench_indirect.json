@@ -1,0 +1,43 @@
+{
+ "n": 59,
+ "good": 53,
+ "bad": 6,
+ "auroc_trust_vision": 0.918,
+ "caught_rate": 1.0,
+ "slip_rate": 0.0,
+ "FRONTIER_confidently_wrong": 0.0,
+ "frontier_n": 0,
+ "complementarity_struct_vs_witness": {
+  "witness": {
+   "covers": 4,
+   "covers_frac": 0.6666666666666666,
+   "unique": 4,
+   "unique_frac": 0.6666666666666666
+  },
+  "geometry": {
+   "covers": 0,
+   "covers_frac": 0.0,
+   "unique": 0,
+   "unique_frac": 0.0
+  },
+  "structural": {
+   "covers": 0,
+   "covers_frac": 0.0,
+   "unique": 0,
+   "unique_frac": 0.0
+  },
+  "reading_order": {
+   "covers": 0,
+   "covers_frac": 0.0,
+   "unique": 0,
+   "unique_frac": 0.0
+  },
+  "token_shape": {
+   "covers": 0,
+   "covers_frac": 0.0,
+   "unique": 0,
+   "unique_frac": 0.0
+  }
+ },
+ "note": "ParseBench vision labels (6 BAD); structural=geometry/structural/reading_order/token_shape, witness=text_conservation"
+}

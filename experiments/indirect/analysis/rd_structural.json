@@ -1,0 +1,38 @@
+{
+ "n": 287,
+ "good": 69,
+ "bad": 218,
+ "reconcile_trust_auroc": 0.879,
+ "paper_rd_auroc": 0.872,
+ "channel_auroc": {
+  "geometry": {
+   "auroc": 0.757,
+   "nan_frac": 0.0
+  },
+  "structural": {
+   "auroc": 0.545,
+   "nan_frac": 0.0
+  },
+  "text_conservation": {
+   "auroc": 0.836,
+   "nan_frac": 0.0
+  },
+  "crop": {
+   "auroc": 1.0,
+   "nan_frac": 0.0
+  }
+ },
+ "structural_only_auroc": 0.545,
+ "witness_only_auroc": 0.836,
+ "verdict": "witness clearly stronger",
+ "without_witness_fused_auroc_mincombine": 0.761,
+ "without_witness_fused_auroc_meancombine": 0.761,
+ "full_trust_auroc": 0.879,
+ "channel_auroc_all": {
+  "geometry": 0.757,
+  "structural": 0.545,
+  "token_shape": 0.639,
+  "reading_order": 0.523,
+  "text_conservation": 0.836
+ }
+}

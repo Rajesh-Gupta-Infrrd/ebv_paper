@@ -1,0 +1,2 @@
+pair,fields_total,ntp_count,ntp_rate_pct,ntp_accuracy_pct,ntp_errors_escaped,llm_review_count,llm_review_rate_pct,llm_review_errors,human_review_count,human_review_rate_pct,error_catch_rate_pct,doc_type
+rf+gbm,584,356,61.0,89.3,38,33,5.7,15,195,33.4,80.2,nda

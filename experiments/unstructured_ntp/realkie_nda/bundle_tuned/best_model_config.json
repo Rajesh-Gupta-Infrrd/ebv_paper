@@ -1,0 +1,9 @@
+{
+  "nda": {
+    "model": "gbm",
+    "ntp_rate_pct": 62.8,
+    "ntp_accuracy_pct": 88.2,
+    "error_catch_rate_pct": 78.2,
+    "errors_escaped": 44
+  }
+}

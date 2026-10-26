@@ -1,0 +1,7 @@
+fields_total,fields_ntp,ntp_rate_pct,ntp_accuracy_pct,errors_escaped,errors_caught,error_catch_rate_pct,fields_to_review,review_rate_pct,review_yield_pct,unnecessary_reviews,method,doc_type
+1925,1874,97.4,63.7,681,49,6.7,51,2.6,1335.3,2,current_system_t0.3,invoice
+1925,1693,87.9,66.0,575,155,21.2,232,12.1,247.8,77,current_system_t0.5,invoice
+1925,674,35.0,85.2,100,630,86.3,1251,65.0,8.0,621,current_system_t0.7,invoice
+1925,1091,56.7,85.2,162,568,77.8,834,43.3,19.4,266,rf,invoice
+1925,1074,55.8,86.1,149,581,79.6,851,44.2,17.5,270,gbm,invoice
+1925,1082,56.2,73.7,285,445,61.0,843,43.8,33.8,398,current_system_matched_t0.572,invoice

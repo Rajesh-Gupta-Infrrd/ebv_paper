@@ -1,0 +1,6 @@
+docs_total,docs_ntp,doc_ntp_rate_pct,doc_ntp_accuracy_pct,doc_errors_escaped,doc_errors_caught,doc_error_catch_rate_pct,docs_to_review,doc_review_rate_pct,method,doc_type
+175,154,88.0,0.6,153,21,12.1,21,12.0,current_system_t0.3,invoice
+175,64,36.6,1.6,63,111,63.8,111,63.4,current_system_t0.5,invoice
+175,0,0.0,0.0,0,174,100.0,175,100.0,current_system_t0.7,invoice
+175,0,0.0,0.0,0,174,100.0,175,100.0,rf,invoice
+175,0,0.0,0.0,0,174,100.0,175,100.0,gbm,invoice

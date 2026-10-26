@@ -1,0 +1,367 @@
+{
+ "FCC": {
+  "label": "FCC",
+  "n": 240,
+  "n_err": 27,
+  "channel_dirs": {
+   "format_valid": "high",
+   "keyword_context": "low",
+   "source_context": "low",
+   "value_in_text": "high",
+   "label_value_distance": "low",
+   "cross_field_copy": "high"
+  },
+  "channel_auroc": {
+   "format_valid": 0.761,
+   "keyword_context": 0.679,
+   "source_context": 0.577,
+   "value_in_text": 0.945,
+   "label_value_distance": 0.643,
+   "cross_field_copy": 1.0
+  },
+  "fused_auroc": 0.893,
+  "caught_rate": 0.926,
+  "slip_rate": 0.074,
+  "FRONTIER_confidently_wrong": 0.037,
+  "frontier_n": 1,
+  "complementarity": {
+   "format_valid": {
+    "covers": 0,
+    "covers_frac": 0.0,
+    "unique": 0,
+    "unique_frac": 0.0
+   },
+   "keyword_context": {
+    "covers": 0,
+    "covers_frac": 0.0,
+    "unique": 0,
+    "unique_frac": 0.0
+   },
+   "source_context": {
+    "covers": 1,
+    "covers_frac": 0.037037037037037035,
+    "unique": 0,
+    "unique_frac": 0.0
+   },
+   "value_in_text": {
+    "covers": 0,
+    "covers_frac": 0.0,
+    "unique": 0,
+    "unique_frac": 0.0
+   },
+   "label_value_distance": {
+    "covers": 1,
+    "covers_frac": 0.037037037037037035,
+    "unique": 0,
+    "unique_frac": 0.0
+   },
+   "cross_field_copy": {
+    "covers": 0,
+    "covers_frac": 0.0,
+    "unique": 0,
+    "unique_frac": 0.0
+   }
+  },
+  "placebo": {
+   "real": 0.5555555555555556,
+   "placebo_mean": 0.1048148148148148,
+   "placebo_std": 0.06220789076576522
+  },
+  "frontier_CI": [
+   0.0,
+   0.091
+  ]
+ },
+ "S1": {
+  "label": "S1",
+  "n": 37277,
+  "n_err": 1200,
+  "channel_dirs": {
+   "format_valid": "high",
+   "keyword_context": "high",
+   "source_context": "high",
+   "value_in_text": "high",
+   "label_value_distance": "high",
+   "cross_field_copy": "high"
+  },
+  "channel_auroc": {
+   "format_valid": 0.981,
+   "keyword_context": 0.787,
+   "source_context": 0.814,
+   "value_in_text": 0.675,
+   "label_value_distance": 0.948,
+   "cross_field_copy": 1.0
+  },
+  "fused_auroc": 0.958,
+  "caught_rate": 0.838,
+  "slip_rate": 0.162,
+  "FRONTIER_confidently_wrong": 0.012,
+  "frontier_n": 14,
+  "complementarity": {
+   "format_valid": {
+    "covers": 11,
+    "covers_frac": 0.009166666666666667,
+    "unique": 2,
+    "unique_frac": 0.0016666666666666668
+   },
+   "keyword_context": {
+    "covers": 88,
+    "covers_frac": 0.07333333333333333,
+    "unique": 75,
+    "unique_frac": 0.0625
+   },
+   "source_context": {
+    "covers": 33,
+    "covers_frac": 0.0275,
+    "unique": 8,
+    "unique_frac": 0.006666666666666667
+   },
+   "value_in_text": {
+    "covers": 0,
+    "covers_frac": 0.0,
+    "unique": 0,
+    "unique_frac": 0.0
+   },
+   "label_value_distance": {
+    "covers": 43,
+    "covers_frac": 0.035833333333333335,
+    "unique": 17,
+    "unique_frac": 0.014166666666666666
+   },
+   "cross_field_copy": {
+    "covers": 0,
+    "covers_frac": 0.0,
+    "unique": 0,
+    "unique_frac": 0.0
+   }
+  },
+  "placebo": {
+   "real": 0.9108333333333334,
+   "placebo_mean": 0.09177916666666666,
+   "placebo_std": 0.007776691268356571
+  },
+  "frontier_CI": [
+   0.005,
+   0.018
+  ]
+ },
+ "Charities": {
+  "label": "Charities",
+  "n": 1522,
+  "n_err": 107,
+  "channel_dirs": {
+   "format_valid": "high",
+   "keyword_context": "high",
+   "source_context": "high",
+   "value_in_text": "high",
+   "label_value_distance": "high",
+   "cross_field_copy": "high"
+  },
+  "channel_auroc": {
+   "format_valid": 0.923,
+   "keyword_context": 0.62,
+   "source_context": 0.716,
+   "value_in_text": 0.901,
+   "label_value_distance": 0.507,
+   "cross_field_copy": 1.0
+  },
+  "fused_auroc": 0.711,
+  "caught_rate": 0.729,
+  "slip_rate": 0.271,
+  "FRONTIER_confidently_wrong": 0.178,
+  "frontier_n": 19,
+  "complementarity": {
+   "format_valid": {
+    "covers": 1,
+    "covers_frac": 0.009345794392523364,
+    "unique": 1,
+    "unique_frac": 0.009345794392523364
+   },
+   "keyword_context": {
+    "covers": 0,
+    "covers_frac": 0.0,
+    "unique": 0,
+    "unique_frac": 0.0
+   },
+   "source_context": {
+    "covers": 0,
+    "covers_frac": 0.0,
+    "unique": 0,
+    "unique_frac": 0.0
+   },
+   "value_in_text": {
+    "covers": 0,
+    "covers_frac": 0.0,
+    "unique": 0,
+    "unique_frac": 0.0
+   },
+   "label_value_distance": {
+    "covers": 0,
+    "covers_frac": 0.0,
+    "unique": 0,
+    "unique_frac": 0.0
+   },
+   "cross_field_copy": {
+    "covers": 0,
+    "covers_frac": 0.0,
+    "unique": 0,
+    "unique_frac": 0.0
+   }
+  },
+  "placebo": {
+   "real": 0.16822429906542055,
+   "placebo_mean": 0.09490654205607475,
+   "placebo_std": 0.02958497534232139
+  },
+  "frontier_CI": [
+   0.1,
+   0.232
+  ]
+ },
+ "NDA": {
+  "label": "NDA",
+  "n": 148,
+  "n_err": 13,
+  "channel_dirs": {
+   "format_valid": "high",
+   "keyword_context": "high",
+   "source_context": "low",
+   "value_in_text": "high",
+   "label_value_distance": "low",
+   "cross_field_copy": "high"
+  },
+  "channel_auroc": {
+   "format_valid": 0.928,
+   "keyword_context": 0.772,
+   "source_context": 0.543,
+   "value_in_text": 0.55,
+   "label_value_distance": 0.509,
+   "cross_field_copy": 1.0
+  },
+  "fused_auroc": 0.521,
+  "caught_rate": 0.462,
+  "slip_rate": 0.538,
+  "FRONTIER_confidently_wrong": 0.538,
+  "frontier_n": 7,
+  "complementarity": {
+   "format_valid": {
+    "covers": 4,
+    "covers_frac": 0.3076923076923077,
+    "unique": 4,
+    "unique_frac": 0.3076923076923077
+   },
+   "keyword_context": {
+    "covers": 0,
+    "covers_frac": 0.0,
+    "unique": 0,
+    "unique_frac": 0.0
+   },
+   "source_context": {
+    "covers": 0,
+    "covers_frac": 0.0,
+    "unique": 0,
+    "unique_frac": 0.0
+   },
+   "value_in_text": {
+    "covers": 0,
+    "covers_frac": 0.0,
+    "unique": 0,
+    "unique_frac": 0.0
+   },
+   "label_value_distance": {
+    "covers": 0,
+    "covers_frac": 0.0,
+    "unique": 0,
+    "unique_frac": 0.0
+   },
+   "cross_field_copy": {
+    "covers": 0,
+    "covers_frac": 0.0,
+    "unique": 0,
+    "unique_frac": 0.0
+   }
+  },
+  "placebo": {
+   "real": 0.3076923076923077,
+   "placebo_mean": 0.04230769230769231,
+   "placebo_std": 0.07164590773152753
+  },
+  "frontier_CI": [
+   0.286,
+   0.778
+  ]
+ },
+ "POOLED_paper": {
+  "label": "POOLED(FCC+S1+Charities)",
+  "n": 39039,
+  "n_err": 1334,
+  "channel_dirs": {
+   "format_valid": "high",
+   "keyword_context": "high",
+   "source_context": "high",
+   "value_in_text": "high",
+   "label_value_distance": "high",
+   "cross_field_copy": "high"
+  },
+  "channel_auroc": {
+   "format_valid": 0.972,
+   "keyword_context": 0.78,
+   "source_context": 0.814,
+   "value_in_text": 0.595,
+   "label_value_distance": 0.906,
+   "cross_field_copy": 1.0
+  },
+  "fused_auroc": 0.955,
+  "caught_rate": 0.831,
+  "slip_rate": 0.169,
+  "FRONTIER_confidently_wrong": 0.011,
+  "frontier_n": 15,
+  "complementarity": {
+   "format_valid": {
+    "covers": 12,
+    "covers_frac": 0.008995502248875561,
+    "unique": 2,
+    "unique_frac": 0.0014992503748125937
+   },
+   "keyword_context": {
+    "covers": 112,
+    "covers_frac": 0.08395802098950525,
+    "unique": 82,
+    "unique_frac": 0.06146926536731634
+   },
+   "source_context": {
+    "covers": 67,
+    "covers_frac": 0.05022488755622189,
+    "unique": 12,
+    "unique_frac": 0.008995502248875561
+   },
+   "value_in_text": {
+    "covers": 0,
+    "covers_frac": 0.0,
+    "unique": 0,
+    "unique_frac": 0.0
+   },
+   "label_value_distance": {
+    "covers": 89,
+    "covers_frac": 0.06671664167916042,
+    "unique": 35,
+    "unique_frac": 0.02623688155922039
+   },
+   "cross_field_copy": {
+    "covers": 0,
+    "covers_frac": 0.0,
+    "unique": 0,
+    "unique_frac": 0.0
+   }
+  },
+  "placebo": {
+   "real": 0.9017991004497751,
+   "placebo_mean": 0.1320689655172414,
+   "placebo_std": 0.008286244383829742
+  },
+  "frontier_CI": [
+   0.005,
+   0.016
+  ]
+ }
+}

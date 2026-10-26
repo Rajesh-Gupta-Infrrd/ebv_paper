@@ -1,0 +1,42 @@
+{
+ "n": 36370,
+ "correct": 27817,
+ "errors": 8553,
+ "operating_point": "ROI accept decision (GT-ROI exact calib ON, A-handled keepB labels)",
+ "reconcile_auroc_wv_vs_Ahandled": 0.9934,
+ "caught_rate": 1.0,
+ "slip_rate": 0.0,
+ "FRONTIER_confidently_wrong": 0.0,
+ "frontier_n": 0,
+ "frontier_CI": [
+  0.0,
+  0.0
+ ],
+ "channel_complementarity": {
+  "located": {
+   "covers": 0,
+   "covers_frac": 0.0,
+   "unique": 0,
+   "unique_frac": 0.0
+  },
+  "overlap": {
+   "covers": 128,
+   "covers_frac": 0.014965509178066175,
+   "unique": 0,
+   "unique_frac": 0.0
+  },
+  "iou": {
+   "covers": 128,
+   "covers_frac": 0.014965509178066175,
+   "unique": 0,
+   "unique_frac": 0.0
+  },
+  "center": {
+   "covers": 126,
+   "covers_frac": 0.014731673097158891,
+   "unique": 0,
+   "unique_frac": 0.0
+  }
+ },
+ "note": "FATURA finalized v3 (task3b, wv_score, exact + A-handled keepB). B=GT-empty spurious kept as error."
+}

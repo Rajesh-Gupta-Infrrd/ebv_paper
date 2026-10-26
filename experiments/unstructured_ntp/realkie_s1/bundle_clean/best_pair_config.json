@@ -1,0 +1,13 @@
+{
+  "s1_filing": {
+    "model1": "rf",
+    "model2": "gbm",
+    "ntp_rate_pct": 93.6,
+    "ntp_accuracy_pct": 99.7,
+    "ntp_errors_escaped": 438,
+    "llm_review_rate_pct": 0.3,
+    "llm_review_errors": 15,
+    "human_review_rate_pct": 6.1,
+    "error_catch_rate_pct": 93.9
+  }
+}

@@ -1,0 +1,12 @@
+# EBV extraction experiments — NuExtract-3 on vLLM (A10).
+# Install into a dedicated venv with --prefer-binary (vLLM pins its own torch;
+# never compile from source). Use a RECENT vLLM that supports Qwen3.5-VL
+# (NuExtract-3's backbone) — pin to the latest working release on your box.
+#
+#   python3.12 -m venv .venv && source .venv/bin/activate
+#   pip install -U pip
+#   pip install --prefer-binary -r requirements.txt
+#
+vllm>=0.6.0          # server (brings torch + transformers); upgrade if NuExtract3 arch unsupported
+Pillow               # client: encode page images to data URLs
+requests             # client: OpenAI-compatible HTTP calls

@@ -1,0 +1,109 @@
+{
+ "rows": [
+  {
+   "leg": "STRUCTURED FATURA (synthetic)",
+   "gt": "raw+clean GT",
+   "correctness": "exact field-aware + A-handled(keepB)",
+   "auroc": 0.9934,
+   "caught": 1.0,
+   "frontier": 0.0,
+   "ci": [
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "leg": "STRUCTURED VRDU all (real)",
+   "gt": "VRDU clean GT",
+   "correctness": "exact (list-any-match)",
+   "auroc": 0.8963,
+   "caught": 0.75,
+   "frontier": 0.026,
+   "ci": [
+    0.014,
+    0.041
+   ]
+  },
+  {
+   "leg": "STRUCTURED VRDU excl-signer",
+   "gt": "VRDU clean GT",
+   "correctness": "exact (list-any-match)",
+   "auroc": 0.9272,
+   "caught": 0.78,
+   "frontier": 0.012,
+   "ci": [
+    0.004,
+    0.024
+   ]
+  },
+  {
+   "leg": "UNSTRUCTURED Signal FCC",
+   "gt": "member_correct",
+   "correctness": "normalized bidirectional containment",
+   "auroc": 0.893,
+   "caught": 0.926,
+   "frontier": 0.037,
+   "ci": [
+    0.0,
+    0.091
+   ]
+  },
+  {
+   "leg": "UNSTRUCTURED Signal S1",
+   "gt": "member_correct",
+   "correctness": "normalized bidirectional containment",
+   "auroc": 0.958,
+   "caught": 0.838,
+   "frontier": 0.012,
+   "ci": [
+    0.005,
+    0.018
+   ]
+  },
+  {
+   "leg": "UNSTRUCTURED Signal Charities",
+   "gt": "member_correct",
+   "correctness": "normalized bidirectional containment",
+   "auroc": 0.711,
+   "caught": 0.729,
+   "frontier": 0.178,
+   "ci": [
+    0.1,
+    0.232
+   ]
+  },
+  {
+   "leg": "UNSTRUCTURED Signal POOLED_paper",
+   "gt": "member_correct",
+   "correctness": "normalized bidirectional containment",
+   "auroc": 0.955,
+   "caught": 0.831,
+   "frontier": 0.011,
+   "ci": [
+    0.005,
+    0.016
+   ]
+  },
+  {
+   "leg": "TABLES RD-TableBench",
+   "gt": "vision GOOD/BAD",
+   "correctness": "vision adjudication (TEDS invalid)",
+   "auroc": 0.872,
+   "caught": 0.835,
+   "frontier": 0.106,
+   "ci": [
+    0.065,
+    0.152
+   ]
+  },
+  {
+   "leg": "TABLES ParseBench",
+   "gt": "vision GOOD/BAD",
+   "correctness": "vision adjudication",
+   "auroc": 0.918,
+   "caught": 1.0,
+   "frontier": 0.0,
+   "ci": null
+  }
+ ]
+}

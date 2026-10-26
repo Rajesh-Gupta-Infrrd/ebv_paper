@@ -1,0 +1,13 @@
+{
+  "charity_report": {
+    "model1": "rf",
+    "model2": "gbm",
+    "ntp_rate_pct": 66.2,
+    "ntp_accuracy_pct": 94.4,
+    "ntp_errors_escaped": 232,
+    "llm_review_rate_pct": 4.6,
+    "llm_review_errors": 71,
+    "human_review_rate_pct": 29.3,
+    "error_catch_rate_pct": 79.2
+  }
+}

@@ -1,0 +1,32 @@
+[
+  {
+    "label": "Charities",
+    "gt_empty_pred_present": 601,
+    "scored": 601,
+    "degenerate": 0,
+    "in_text": 598,
+    "not_in_text": 3,
+    "no_text": 627,
+    "in_text_pct": 99.5
+  },
+  {
+    "label": "FCC",
+    "gt_empty_pred_present": 179,
+    "scored": 179,
+    "degenerate": 0,
+    "in_text": 177,
+    "not_in_text": 2,
+    "no_text": 0,
+    "in_text_pct": 98.9
+  },
+  {
+    "label": "S-1",
+    "gt_empty_pred_present": 4310,
+    "scored": 3555,
+    "degenerate": 755,
+    "in_text": 3491,
+    "not_in_text": 64,
+    "no_text": 0,
+    "in_text_pct": 98.2
+  }
+]

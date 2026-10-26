@@ -1,0 +1,116 @@
+{
+  "charity_report": {
+    "Accounting Basis": {
+      "gt_empty_rate": 0.2166,
+      "n": 217
+    },
+    "Bank Name": {
+      "gt_empty_rate": 0.3318,
+      "n": 217
+    },
+    "Cash In Hand at Current Year End": {
+      "gt_empty_rate": 0.0732,
+      "n": 205
+    },
+    "Cash In Hand at Previous Year End": {
+      "gt_empty_rate": 0.1148,
+      "n": 209
+    },
+    "Charity Name": {
+      "gt_empty_rate": 0.0078,
+      "n": 256
+    },
+    "Charity Registered Number": {
+      "gt_empty_rate": 0.0488,
+      "n": 246
+    },
+    "Company Number": {
+      "gt_empty_rate": 0.8171,
+      "n": 246
+    },
+    "Event Name": {
+      "gt_empty_rate": 0.9048,
+      "n": 210
+    },
+    "Examination Date": {
+      "gt_empty_rate": 0.2876,
+      "n": 226
+    },
+    "Independent Examiner City": {
+      "gt_empty_rate": 0.1508,
+      "n": 252
+    },
+    "Independent Examiner Company": {
+      "gt_empty_rate": 0.3106,
+      "n": 235
+    },
+    "Independent Examiner Name": {
+      "gt_empty_rate": 0.1071,
+      "n": 224
+    },
+    "Independent Examiner Postal Code": {
+      "gt_empty_rate": 0.1811,
+      "n": 254
+    },
+    "Independent Examiner Street Address": {
+      "gt_empty_rate": 0.1627,
+      "n": 252
+    },
+    "Named Donor": {
+      "gt_empty_rate": 0.9327,
+      "n": 223
+    },
+    "Named Employee": {
+      "gt_empty_rate": 0.9522,
+      "n": 209
+    },
+    "Net Assets at Current Year End": {
+      "gt_empty_rate": 0.1218,
+      "n": 197
+    },
+    "Net Assets at Previous Year End": {
+      "gt_empty_rate": 0.1634,
+      "n": 202
+    },
+    "Net Income at Current Year End": {
+      "gt_empty_rate": 0.2254,
+      "n": 142
+    },
+    "Net Income at Previous Year End": {
+      "gt_empty_rate": 0.2733,
+      "n": 150
+    },
+    "Objectives and Activities": {
+      "gt_empty_rate": 0.0935,
+      "n": 214
+    },
+    "Principal Office City": {
+      "gt_empty_rate": 0.1494,
+      "n": 241
+    },
+    "Principal Office Postal Code": {
+      "gt_empty_rate": 0.1903,
+      "n": 247
+    },
+    "Principal Office Street Address": {
+      "gt_empty_rate": 0.1488,
+      "n": 242
+    },
+    "Project Name": {
+      "gt_empty_rate": 0.9211,
+      "n": 228
+    },
+    "Trustee Name": {
+      "gt_empty_rate": 0.0602,
+      "n": 249
+    },
+    "Trustee Title": {
+      "gt_empty_rate": 0.1096,
+      "n": 219
+    },
+    "Year Ended": {
+      "gt_empty_rate": 0.0079,
+      "n": 254
+    }
+  }
+}

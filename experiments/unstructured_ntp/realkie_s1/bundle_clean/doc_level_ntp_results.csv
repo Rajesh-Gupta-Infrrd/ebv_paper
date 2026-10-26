@@ -1,0 +1,6 @@
+docs_total,docs_ntp,doc_ntp_rate_pct,doc_ntp_accuracy_pct,doc_errors_escaped,doc_errors_caught,doc_error_catch_rate_pct,docs_to_review,doc_review_rate_pct,method,doc_type
+6321,6137,97.1,4.9,5834,165,2.8,184,2.9,current_system_t0.3,s1_filing
+6321,3661,57.9,3.6,3529,2470,41.2,2660,42.1,current_system_t0.5,s1_filing
+6321,0,0.0,0.0,0,5999,100.0,6321,100.0,current_system_t0.7,s1_filing
+6321,10,0.2,0.0,10,5989,99.8,6311,99.8,rf,s1_filing
+6321,11,0.2,0.0,11,5988,99.8,6310,99.8,gbm,s1_filing

@@ -1,0 +1,17 @@
+{
+ "n_errors": 544,
+ "family_distribution": {
+  "wrong_value": 534,
+  "cross_field_copy": 10
+ },
+ "detectability_map": {
+  "wrong_value": {
+   "n": 534,
+   "caught_at_deployed": 0.753
+  },
+  "cross_field_copy": {
+   "n": 10,
+   "caught_at_deployed": 0.6
+  }
+ }
+}

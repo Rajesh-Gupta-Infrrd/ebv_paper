@@ -1,0 +1,2 @@
+pair,fields_total,ntp_count,ntp_rate_pct,ntp_accuracy_pct,ntp_errors_escaped,llm_review_count,llm_review_rate_pct,llm_review_errors,human_review_count,human_review_rate_pct,error_catch_rate_pct,doc_type
+rf+gbm,1925,1057,54.9,86.1,147,74,3.8,32,794,41.2,79.9,invoice

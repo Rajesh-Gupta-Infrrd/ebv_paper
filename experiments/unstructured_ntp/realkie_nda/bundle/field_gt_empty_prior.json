@@ -1,0 +1,16 @@
+{
+  "nda": {
+    "Effective Date": {
+      "gt_empty_rate": 0.1667,
+      "n": 198
+    },
+    "Jurisdiction": {
+      "gt_empty_rate": 0.0556,
+      "n": 198
+    },
+    "Party": {
+      "gt_empty_rate": 0.0,
+      "n": 198
+    }
+  }
+}

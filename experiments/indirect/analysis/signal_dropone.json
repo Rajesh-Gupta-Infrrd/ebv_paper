@@ -1,0 +1,20 @@
+{
+ "full_auroc": 0.957,
+ "reconciled_to_production": true,
+ "drop_one_delta": {
+  "format_valid": 0.0,
+  "keyword_context": 0.017,
+  "source_context": -0.001,
+  "value_in_text": 0.001,
+  "label_value_distance": 0.0,
+  "cross_field_copy": -0.0,
+  "is_empty": -0.0,
+  "gt_empty_rate": 0.303
+ },
+ "most_important_by_dropone": [
+  "gt_empty_rate",
+  "keyword_context",
+  "value_in_text",
+  "format_valid"
+ ]
+}

@@ -1,0 +1,30 @@
+{
+ "all_fields": {
+  "label": "all",
+  "n": 2647,
+  "errors": 544,
+  "AUROC": 0.8963,
+  "caught_rate": 0.75,
+  "slip_rate": 0.25,
+  "FRONTIER_confidently_wrong": 0.026,
+  "frontier_n": 14,
+  "frontier_CI": [
+   0.014,
+   0.038
+  ]
+ },
+ "excl_signature": {
+  "label": "nosig",
+  "n": 2052,
+  "errors": 482,
+  "AUROC": 0.9272,
+  "caught_rate": 0.78,
+  "slip_rate": 0.22,
+  "FRONTIER_confidently_wrong": 0.012,
+  "frontier_n": 6,
+  "frontier_CI": [
+   0.004,
+   0.024
+  ]
+ }
+}

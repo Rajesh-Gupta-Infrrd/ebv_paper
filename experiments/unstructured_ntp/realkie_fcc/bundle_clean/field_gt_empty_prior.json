@@ -1,0 +1,48 @@
+{
+  "invoice": {
+    "Advertiser": {
+      "gt_empty_rate": 0.0,
+      "n": 168
+    },
+    "Agency": {
+      "gt_empty_rate": 0.0733,
+      "n": 150
+    },
+    "Agency Commission": {
+      "gt_empty_rate": 0.1818,
+      "n": 165
+    },
+    "Gross Total": {
+      "gt_empty_rate": 0.0351,
+      "n": 171
+    },
+    "Line Item - Days": {
+      "gt_empty_rate": 0.0602,
+      "n": 166
+    },
+    "Line Item - Description": {
+      "gt_empty_rate": 0.0066,
+      "n": 151
+    },
+    "Line Item - End Date": {
+      "gt_empty_rate": 0.1711,
+      "n": 152
+    },
+    "Line Item - Rate": {
+      "gt_empty_rate": 0.0578,
+      "n": 173
+    },
+    "Line Item - Start Date": {
+      "gt_empty_rate": 0.0651,
+      "n": 169
+    },
+    "Net Amount Due": {
+      "gt_empty_rate": 0.0575,
+      "n": 174
+    },
+    "Payment Terms": {
+      "gt_empty_rate": 0.2244,
+      "n": 156
+    }
+  }
+}

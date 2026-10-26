@@ -1,0 +1,3 @@
+doc_type,method,split,fields_total,fields_ntp,ntp_rate_pct,ntp_accuracy_pct,errors_escaped,errors_caught,error_catch_rate_pct,fields_to_review,review_rate_pct,review_yield_pct,unnecessary_reviews,doc_docs_total,doc_docs_ntp,doc_doc_ntp_rate_pct,doc_doc_ntp_accuracy_pct,doc_doc_errors_escaped,doc_doc_errors_caught,doc_doc_error_catch_rate_pct,doc_docs_to_review,doc_doc_review_rate_pct
+s1_filing,rf,test,29759,27882,93.7,99.7,77,1361,94.6,1877,6.3,4.1,516,6292,4620,73.4,98.8,56,1326,95.9,1672,26.6
+s1_filing,gbm,test,29759,27895,93.7,99.7,79,1359,94.5,1864,6.3,4.2,505,6292,4631,73.6,98.7,59,1323,95.7,1661,26.4

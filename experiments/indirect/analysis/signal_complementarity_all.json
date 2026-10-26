@@ -1,0 +1,32 @@
+{
+ "channel_auroc": {
+  "format_valid": 0.972,
+  "keyword_context": 0.78,
+  "source_context": 0.814,
+  "value_in_text": 0.595,
+  "label_value_distance": 0.906,
+  "cross_field_copy": 1.0,
+  "is_empty": 0.72,
+  "gt_empty_rate": 0.856
+ },
+ "unique_capture": {
+  "format_valid": 2,
+  "keyword_context": 75,
+  "source_context": 4,
+  "value_in_text": 0,
+  "label_value_distance": 17,
+  "cross_field_copy": 0,
+  "is_empty": 0,
+  "gt_empty_rate": 945
+ },
+ "covers": {
+  "format_valid": 12,
+  "keyword_context": 112,
+  "source_context": 67,
+  "value_in_text": 0,
+  "label_value_distance": 89,
+  "cross_field_copy": 0,
+  "is_empty": 0,
+  "gt_empty_rate": 1004
+ }
+}

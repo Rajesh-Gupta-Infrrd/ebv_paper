@@ -1,0 +1,13 @@
+{
+  "invoice": {
+    "model1": "rf",
+    "model2": "gbm",
+    "ntp_rate_pct": 54.5,
+    "ntp_accuracy_pct": 90.8,
+    "ntp_errors_escaped": 90,
+    "llm_review_rate_pct": 5.7,
+    "llm_review_errors": 37,
+    "human_review_rate_pct": 39.8,
+    "error_catch_rate_pct": 85.0
+  }
+}

@@ -1,0 +1,28 @@
+{
+ "n_errors": 1334,
+ "family_distribution": {
+  "wrong_value_in_source": 313,
+  "missing": 944,
+  "cross_field_copy": 30,
+  "source_absent": 47
+ },
+ "detectability_map": {
+  "wrong_value_in_source": {
+   "n": 313,
+   "caught_at_deployed": 0.949
+  },
+  "missing": {
+   "n": 944,
+   "caught_at_deployed": 0.787
+  },
+  "cross_field_copy": {
+   "n": 30,
+   "caught_at_deployed": 0.733
+  },
+  "source_absent": {
+   "n": 47,
+   "caught_at_deployed": 1.0
+  }
+ },
+ "note": "families assigned by rule from pred/GT/source-text (no re-extraction). caught=rejected at accept_bin."
+}

@@ -1,0 +1,91 @@
+{
+ "FCC": {
+  "n": 240,
+  "base_err": 0.113,
+  "err_by_suff": {
+   "4": 0.36,
+   "6": 0.084
+  },
+  "count_by_suff": {
+   "4": 25,
+   "6": 215
+  },
+  "h4": {
+   "risk1%": {
+    "cov_proba_alone": 0.233,
+    "cov_proba+suff": 0.571,
+    "improved": true
+   },
+   "risk2%": {
+    "cov_proba_alone": 0.717,
+    "cov_proba+suff": 0.717,
+    "improved": false
+   },
+   "risk5%": {
+    "cov_proba_alone": 0.85,
+    "cov_proba+suff": 0.85,
+    "improved": false
+   }
+  }
+ },
+ "S1": {
+  "n": 37277,
+  "base_err": 0.032,
+  "err_by_suff": {
+   "4": 0.025,
+   "6": 0.209
+  },
+  "count_by_suff": {
+   "4": 35876,
+   "6": 1401
+  },
+  "h4": {
+   "risk1%": {
+    "cov_proba_alone": 0.953,
+    "cov_proba+suff": 0.953,
+    "improved": false
+   },
+   "risk2%": {
+    "cov_proba_alone": 0.964,
+    "cov_proba+suff": 0.964,
+    "improved": false
+   },
+   "risk5%": {
+    "cov_proba_alone": 1.0,
+    "cov_proba+suff": 1.0,
+    "improved": false
+   }
+  }
+ },
+ "Charities": {
+  "n": 1522,
+  "base_err": 0.07,
+  "err_by_suff": {
+   "4": 0.044,
+   "6": 0.082
+  },
+  "count_by_suff": {
+   "4": 478,
+   "6": 1044
+  },
+  "h4": {
+   "risk1%": {
+    "cov_proba_alone": 0.189,
+    "cov_proba+suff": 0.189,
+    "improved": false
+   },
+   "risk2%": {
+    "cov_proba_alone": 0.367,
+    "cov_proba+suff": 0.367,
+    "improved": false
+   },
+   "risk5%": {
+    "cov_proba_alone": 0.754,
+    "cov_proba+suff": 0.754,
+    "improved": false
+   }
+  }
+ },
+ "_DECISION": "KEEP",
+ "_insufficient_state_rate_note": "0.93 of fields lack value_in_text/cross_field_copy (field-specific signals), i.e. availability barely varies -> sufficiency adds ~no new info (per spec, its only new info IS availability)"
+}

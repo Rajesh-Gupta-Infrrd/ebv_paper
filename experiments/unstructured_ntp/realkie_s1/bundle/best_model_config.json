@@ -1,0 +1,9 @@
+{
+  "s1_filing": {
+    "model": "rf",
+    "ntp_rate_pct": 91.6,
+    "ntp_accuracy_pct": 99.7,
+    "error_catch_rate_pct": 95.6,
+    "errors_escaped": 441
+  }
+}

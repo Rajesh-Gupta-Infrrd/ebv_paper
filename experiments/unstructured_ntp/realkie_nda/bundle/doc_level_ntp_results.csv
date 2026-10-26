@@ -1,0 +1,6 @@
+docs_total,docs_ntp,doc_ntp_rate_pct,doc_ntp_accuracy_pct,doc_errors_escaped,doc_errors_caught,doc_error_catch_rate_pct,docs_to_review,doc_review_rate_pct,method,doc_type
+198,146,73.7,32.9,98,49,33.3,52,26.3,current_system_t0.3,nda
+198,40,20.2,27.5,29,118,80.3,158,79.8,current_system_t0.5,nda
+198,0,0.0,0.0,0,147,100.0,198,100.0,current_system_t0.7,nda
+198,18,9.1,61.1,7,140,95.2,180,90.9,rf,nda
+198,22,11.1,54.5,10,137,93.2,176,88.9,gbm,nda

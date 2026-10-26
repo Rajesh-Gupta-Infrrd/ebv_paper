@@ -1,0 +1,9 @@
+{
+  "invoice": {
+    "model": "rf",
+    "ntp_rate_pct": 56.7,
+    "ntp_accuracy_pct": 89.5,
+    "error_catch_rate_pct": 82.2,
+    "errors_escaped": 107
+  }
+}

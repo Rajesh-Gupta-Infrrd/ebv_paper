@@ -1,0 +1,9 @@
+{
+  "invoice": {
+    "model": "gbm",
+    "ntp_rate_pct": 55.8,
+    "ntp_accuracy_pct": 86.1,
+    "error_catch_rate_pct": 79.6,
+    "errors_escaped": 149
+  }
+}

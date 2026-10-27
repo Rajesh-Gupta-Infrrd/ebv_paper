@@ -1,0 +1,42 @@
+[
+ {
+  "type": "URLA",
+  "leg": "ROI/structured",
+  "n": 5970,
+  "errors": 1018,
+  "auroc": 0.95,
+  "coverage@5": 0.861
+ },
+ {
+  "type": "CD_tables",
+  "leg": "ROI/structured",
+  "n": 3300,
+  "errors": 574,
+  "auroc": 0.947,
+  "coverage@5": 0.808
+ },
+ {
+  "type": "AUS_DU",
+  "leg": "Signal/unstructured",
+  "n": 5970,
+  "errors": 1602,
+  "auroc": 0.994,
+  "coverage@5": 0.754
+ },
+ {
+  "type": "Bank",
+  "leg": "Signal/unstructured",
+  "n": 1330,
+  "errors": 567,
+  "auroc": 0.941,
+  "coverage@5": 0.023
+ },
+ {
+  "type": "CreditReportLender",
+  "leg": "Signal/unstructured",
+  "n": 3204,
+  "errors": 1133,
+  "auroc": 0.93,
+  "coverage@5": 0.344
+ }
+]

@@ -1,0 +1,26 @@
+{
+ "n": 105,
+ "domains": {
+  "CD": {
+   "n": 45,
+   "bad": 4
+  },
+  "Bank": {
+   "n": 30,
+   "bad": 10
+  },
+  "CreditReport": {
+   "n": 30,
+   "bad": 20
+  }
+ },
+ "total_bad": 34,
+ "bad_catch@85": "31/34=0.91",
+ "false_reject": "24/71=0.34",
+ "auroc": 0.825,
+ "gt": "blind 2-annotator (sonnet+fable) + author rubric adjudication; fused/truncated/dropped=defect",
+ "cohen_kappa_bankcredit": 0.23,
+ "witness": "docTR on cropped table",
+ "hardtail_example": "CD idx22 trust=100 dropped loan-type checkboxes",
+ "boundary": "over-rejects atypical layouts (blank reconciliation forms); false-reject 0.60 on credit"
+}

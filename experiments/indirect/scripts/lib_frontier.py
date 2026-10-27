@@ -12,6 +12,8 @@ inapplicable for that item (does not flag; contributes to INSUFFICIENT).
 No ground-truth family labels are needed here; the per-family map is separate.
 """
 import numpy as np
+import pandas as pd
+from sklearn.metrics import roc_auc_score as _sk_roc_auc
 
 def _flag_mask(vals, thr, direction):
     v = np.asarray(vals, float)
@@ -184,16 +186,17 @@ def complementarity(df, channels, frr=0.05):
     return out
 
 def auroc(score, correct):
-    """AUROC of score predicting CORRECT (higher score = more trustworthy)."""
+    """AUROC of score predicting CORRECT (higher score = more trustworthy).
+
+    Uses sklearn roc_auc_score, which averages tied ranks (the Mann-Whitney statistic
+    handles ties correctly). The earlier hand-rolled version assigned *sequential* ranks
+    to ties, making results order-dependent for heavily-tied / binary channels (review #1).
+    """
     s = np.asarray(score, float); c = np.asarray(correct, bool)
     ok = ~np.isnan(s); s, c = s[ok], c[ok]
-    pos, neg = s[c], s[~c]
-    if len(pos) == 0 or len(neg) == 0: return float('nan')
-    # rank-based
-    order = np.argsort(np.concatenate([pos, neg]), kind='mergesort')
-    ranks = np.empty(len(order), float); ranks[order] = np.arange(1, len(order) + 1)
-    r_pos = ranks[:len(pos)].sum()
-    return (r_pos - len(pos) * (len(pos) + 1) / 2) / (len(pos) * len(neg))
+    if len(np.unique(c)) < 2:
+        return float('nan')
+    return float(_sk_roc_auc(c, s))
 
 def placebo_oracle(df, channels, frr=0.05, n=200, seed=0):
     """Permute each channel's values across items; oracle_capture should collapse ~ union of per-channel 5%."""
@@ -214,15 +217,17 @@ def placebo_oracle(df, channels, frr=0.05, n=200, seed=0):
 def bootstrap_ci(df, fn, group=None, n=1000, seed=0, alpha=0.05):
     """Bootstrap CI for scalar metric fn(df_sample). Resample by `group` col (doc/table) if given."""
     rng = np.random.default_rng(seed)
+    vals = []
     if group and group in df:
         groups = df[group].unique()
-        vals = []
+        by = {g: df[df[group] == g] for g in groups}      # rows of each cluster
         for _ in range(n):
             pick = rng.choice(groups, len(groups), replace=True)
-            sub = df[df[group].isin(pick)]  # note: approximate (unique membership)
+            # proper cluster bootstrap: a group drawn k times contributes its rows k times
+            sub = pd.concat([by[g] for g in pick], ignore_index=True)
             vals.append(fn(sub))
     else:
-        idx = np.arange(len(df)); vals = []
+        idx = np.arange(len(df))
         for _ in range(n):
             sub = df.iloc[rng.choice(idx, len(idx), replace=True)]
             vals.append(fn(sub))

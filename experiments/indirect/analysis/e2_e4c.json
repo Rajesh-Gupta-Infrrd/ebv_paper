@@ -2,15 +2,15 @@
  "E2_signal_ablation": "not-faithful (content signals near-constant; needs production retrain) \u2014 use complementarity",
  "E4c_signal": {
   "n_err": 1334,
-  "fusion_caught": 1109,
-  "fusion_caught_rate": 0.8313343328335832,
-  "observable_by_channel": 190,
-  "observable_rate": 0.1424287856071964,
-  "obs_and_caught": 107,
-  "obs_but_missed": 83,
-  "fusiononly_caught": 1002,
-  "true_frontier_n": 142,
-  "true_frontier_rate": 0.10644677661169415
+  "fusion_caught": 1120,
+  "fusion_caught_rate": 0.8395802098950524,
+  "observable_by_channel": 381,
+  "observable_rate": 0.2856071964017991,
+  "obs_and_caught": 303,
+  "obs_but_missed": 78,
+  "fusiononly_caught": 817,
+  "true_frontier_n": 136,
+  "true_frontier_rate": 0.10194902548725637
  },
  "E4c_parsebench": {
   "n_err": 6,
@@ -26,6 +26,6 @@
  },
  "E2_tables_family_auroc": {
   "witness": 0.884,
-  "structural": 0.535
+  "structural": 0.542
  }
 }

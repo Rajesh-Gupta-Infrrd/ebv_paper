@@ -2,11 +2,11 @@
  "FCC": {
   "n_errors": 27,
   "n_errors_nonempty": 18,
-  "confidently_wrong_total": 1,
-  "value_blindspot_nonempty": 1,
+  "confidently_wrong_total": 0,
+  "value_blindspot_nonempty": 0,
   "extractor_empty_misses": 0,
-  "VALUE_FRONTIER_nonempty": 0.056,
-  "old_frontier_all": 0.037
+  "VALUE_FRONTIER_nonempty": 0.0,
+  "old_frontier_all": 0.0
  },
  "S1": {
   "n_errors": 1200,
@@ -20,15 +20,15 @@
  "Charities": {
   "n_errors": 107,
   "n_errors_nonempty": 86,
-  "confidently_wrong_total": 19,
-  "value_blindspot_nonempty": 7,
+  "confidently_wrong_total": 18,
+  "value_blindspot_nonempty": 6,
   "extractor_empty_misses": 12,
-  "VALUE_FRONTIER_nonempty": 0.081,
-  "old_frontier_all": 0.178
+  "VALUE_FRONTIER_nonempty": 0.07,
+  "old_frontier_all": 0.168
  },
  "POOLED": {
-  "value_frontier_nonempty": 0.02,
-  "value_blindspot": 8,
+  "value_frontier_nonempty": 0.015,
+  "value_blindspot": 6,
   "errors_nonempty": 397,
   "extractor_empty_misses": 26
  }

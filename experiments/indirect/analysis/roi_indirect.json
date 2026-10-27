@@ -3,7 +3,7 @@
  "correct": 27817,
  "errors": 8553,
  "operating_point": "ROI accept decision (GT-ROI exact calib ON, A-handled keepB labels)",
- "reconcile_auroc_wv_vs_Ahandled": 0.9934,
+ "reconcile_auroc_wv_vs_Ahandled": 0.9939,
  "caught_rate": 1.0,
  "slip_rate": 0.0,
  "FRONTIER_confidently_wrong": 0.0,

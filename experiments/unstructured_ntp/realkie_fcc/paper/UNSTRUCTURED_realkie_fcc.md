@@ -113,6 +113,10 @@ catch **0.863 → 0.926**. Every metric improved — directly confirming the fak
 - **A verifier's job is not accept/route accuracy** — it is "auto-approve as much as possible under an
   error budget". That is **coverage@risk**: accept-all auto-approves 100% but at 0.113 error
   (fails a 5% budget); ours auto-approves **84% at ≤5% error**. That is the capability.
+  - *Calibration/test validation:* this coverage is not an oracle-optimistic number — choosing the
+    threshold on a calibration split and evaluating on a held-out test split reproduces it (~81%
+    coverage at 2.1% test risk; S1 100%@3.3%, Charities 79%@5.5%), so the reported coverage holds
+    under a proper calibrate-then-freeze protocol.
 - Score separation confirms it: on clean scalar, mean accept-proba = **0.603 on correct**
   vs **0.304 on wrong** (correct≥0.5: 156/213, wrong≥0.5: 3/27).
 

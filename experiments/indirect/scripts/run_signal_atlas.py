@@ -32,9 +32,9 @@ for name, (decf, dataf) in DOMS.items():
         gt = ents.get(o["field"])
         other_gt = [v for f, v in ents.items() if f != o["field"]]   # other fields' GT values
         fam = family(pred, gt, text, other_gt)
-        caught = not bool(o.get("accept_bin"))            # caught = rejected at deployed threshold
+        caught = not bool(o.get("accept_3t"))            # caught = rejected at deployed threshold
         rows_all.append({"domain": name, "field": o["field"], "family": fam, "caught": caught,
-                         "proba": o.get("proba"), "accepted": bool(o.get("accept_bin"))})
+                         "proba": o.get("proba"), "accepted": bool(o.get("accept_3t"))})
 
 from collections import Counter, defaultdict
 fam_count = Counter(r["family"] for r in rows_all)
@@ -49,6 +49,6 @@ for f in fam_count:
     print(f"  {f:22s} n={len(sub):4d}  caught@deployed={cr:.3f}")
 out = {"n_errors": len(rows_all), "family_distribution": dict(fam_count),
        "detectability_map": famstats,
-       "note": "families assigned by rule from pred/GT/source-text (no re-extraction). caught=rejected at accept_bin."}
+       "note": "families assigned by rule from pred/GT/source-text (no re-extraction). caught=rejected at accept_3t."}
 json.dump(out, open(f"{os.path.dirname(__file__)}/../analysis/signal_atlas.json", "w"), indent=1)
 print("\nsaved -> analysis/signal_atlas.json")

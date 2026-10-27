@@ -24,7 +24,7 @@ for name, (decf, dataf) in DOMS.items():
     cors = sorted(o["proba"] for o in dec if o["correct"] and o.get("proba") is not None)
     med = cors[len(cors) // 2]
     errs = [o for o in dec if not o["correct"]]
-    cw = [o for o in errs if o.get("accept_bin") and o.get("proba") is not None and o["proba"] >= med]
+    cw = [o for o in errs if o.get("accept_3t") and o.get("proba") is not None and o["proba"] >= med]
     def getpred(o): return (pl.get(o["doc"]) or {}).get(o["field"])
     ne_err = [o for o in errs if not is_empty(getpred(o))]            # errors where extractor produced a value
     ne_cw = [o for o in cw if not is_empty(getpred(o))]              # value-verification blind spot

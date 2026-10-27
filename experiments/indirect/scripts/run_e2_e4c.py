@@ -25,7 +25,7 @@ def load_signal():
             o = json.loads(ln)
             if o.get("field_type") != "scalar": continue
             s = o.get("signals") or {}
-            r = {"doc": o["doc"], "correct": bool(o["correct"]), "accept": bool(o.get("accept_bin")),
+            r = {"doc": o["doc"], "correct": bool(o["correct"]), "accept": bool(o.get("accept_3t")),
                  "fused": num(o.get("proba"))}
             for c in CHAN: r[c] = num(s.get(c))
             rows.append(r)

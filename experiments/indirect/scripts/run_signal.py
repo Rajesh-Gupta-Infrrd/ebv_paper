@@ -30,7 +30,7 @@ def load(path):
         sig = o.get("signals") or {}
         r = {"doc": o.get("doc"), "field": o.get("field"),
              "correct": bool(o.get("correct")),
-             "accept": bool(o.get("accept_bin")),
+             "accept": bool(o.get("accept_3t")),
              "fused": num(o.get("proba"))}        # proba reproduces paper AUROC
         for c in CHAN: r[c] = num(sig.get(c))
         rows.append(r)
@@ -57,7 +57,7 @@ def analyze(df, label):
                             for a in [L.auroc(df[c].values, df["correct"].values)]}
     res["fused_auroc"] = round(max(L.auroc(df["fused"].values, df["correct"].values),
                                    1 - L.auroc(df["fused"].values, df["correct"].values)), 3)
-    # DEPLOYED operating point = binary accept decision (accept_bin); fused = proba
+    # DEPLOYED operating point = binary accept decision (accept_3t); fused = proba
     rep = L.deployed_report(df, "fused", fused_dir=fdir, accept_col="accept", indist_pct=50)
     res["caught_rate"] = round(rep["caught_rate"], 3)
     res["slip_rate"] = round(rep["slip_rate"], 3)
@@ -82,7 +82,7 @@ json.dump(out, open(f"{os.path.dirname(__file__)}/../analysis/signal_indirect.js
 for k, r in out.items():
     print(f"\n==== {k}  n={r['n']} scalar fields, errors={r['n_err']} ====")
     print(f"  fused AUROC={r['fused_auroc']}  channels={r['channel_auroc']}")
-    print(f"  DEPLOYED(accept_bin): caught={r['caught_rate']} slip={r['slip_rate']}")
+    print(f"  DEPLOYED(accept_3t): caught={r['caught_rate']} slip={r['slip_rate']}")
     print(f"  *** FRONTIER confidently-wrong={r['FRONTIER_confidently_wrong']} (n={r['frontier_n']}/{r['n_err']}) CI={r['frontier_CI']}")
     print(f"  placebo: real={r['placebo']['real']:.3f} vs permuted={r['placebo']['placebo_mean']:.3f}±{r['placebo']['placebo_std']:.3f}")
     uq = {c: v['unique'] for c, v in r['complementarity'].items() if v['unique'] > 0}

@@ -9,20 +9,20 @@
  "detectability_map": {
   "wrong_value_in_source": {
    "n": 313,
-   "caught_at_deployed": 0.949
+   "caught_at_deployed": 0.968
   },
   "missing": {
    "n": 944,
-   "caught_at_deployed": 0.787
+   "caught_at_deployed": 0.789
   },
   "cross_field_copy": {
    "n": 30,
-   "caught_at_deployed": 0.733
+   "caught_at_deployed": 0.833
   },
   "source_absent": {
    "n": 47,
    "caught_at_deployed": 1.0
   }
  },
- "note": "families assigned by rule from pred/GT/source-text (no re-extraction). caught=rejected at accept_bin."
+ "note": "families assigned by rule from pred/GT/source-text (no re-extraction). caught=rejected at accept_3t."
 }

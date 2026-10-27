@@ -3,14 +3,14 @@
  "good": 69,
  "bad": 218,
  "operating_point": "deployed trust>=85",
- "fused_auroc": 0.872,
+ "fused_auroc": 0.873,
  "caught_rate": 0.835,
  "slip_rate": 0.165,
  "FRONTIER_confidently_wrong": 0.106,
  "frontier_n": 23,
  "frontier_CI": [
-  0.065,
-  0.152
+  0.058,
+  0.171
  ],
  "placebo": {
   "real": 0.6926605504587156,
@@ -26,12 +26,12 @@
   "data loss": {
    "n": 99,
    "catch@deployed": 0.838,
-   "auroc_vs_good": 0.881
+   "auroc_vs_good": 0.882
   },
   "scramble": {
    "n": 22,
    "catch@deployed": 0.818,
-   "auroc_vs_good": 0.845
+   "auroc_vs_good": 0.846
   },
   "faithful": {
    "n": 72,

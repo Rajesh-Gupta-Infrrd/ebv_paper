@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cheap Evidence, Hard Errors</title>
+<meta name="description" content="Evidence-Based Verification: verifying document extraction without another generative-model call (NAACL 2027 Industry Track draft).">
+<style>
+  :root{
+    --bg:#ffffff; --ink:#1a1a1a; --muted:#555; --rule:#d8d8d8;
+    --accent:#8a2b06; --link:#1a4f8a;
+    --struct:#2b6cb0; --unstr:#2f855a; --tab:#c05621;
+    --tablehdr:#f3f4f6; --tablestripe:#fafafa; --box:#f7f7f4;
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,"Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#14161a; --ink:#e8e6e1; --muted:#a7a29a; --rule:#333;
+      --accent:#e08b63; --link:#7bb0e8;
+      --tablehdr:#20242b; --tablestripe:#1a1d22; --box:#1b1e24;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#14161a; --ink:#e8e6e1; --muted:#a7a29a; --rule:#333;
+    --accent:#e08b63; --link:#7bb0e8;
+    --tablehdr:#20242b; --tablestripe:#1a1d22; --box:#1b1e24;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    background:var(--bg); color:var(--ink); font-family:var(--serif);
+    line-height:1.56; margin:0; padding:0;
+    font-size:17px; -webkit-font-smoothing:antialiased;
+  }
+  .page{max-width:820px; margin:0 auto; padding:56px 24px 96px;}
+  header.title{text-align:center; border-bottom:2px solid var(--ink); padding-bottom:22px; margin-bottom:12px;}
+  h1.doctitle{font-size:30px; line-height:1.22; margin:0 0 6px; font-weight:700; letter-spacing:-0.01em;}
+  .authors{font-size:16px; margin:14px 0 2px; font-variant:small-caps; letter-spacing:.03em;}
+  .affil{font-size:13.5px; color:var(--muted); font-family:var(--sans);}
+  .venue{font-size:12.5px; color:var(--muted); font-family:var(--sans); margin-top:10px; text-transform:uppercase; letter-spacing:.08em;}
+  .abstract{background:var(--box); border:1px solid var(--rule); border-radius:6px;
+    padding:18px 22px; margin:26px 0 8px; font-size:15.5px; line-height:1.55;}
+  .abstract h2{font-size:12px; text-transform:uppercase; letter-spacing:.14em; margin:0 0 8px;
+    font-family:var(--sans); color:var(--muted); text-align:center; font-weight:700;}
+  h2.sec{font-size:20px; margin:34px 0 10px; padding-bottom:4px; font-weight:700;
+    border-bottom:1px solid var(--rule);}
+  h3.sub{font-size:16.5px; margin:22px 0 6px; font-weight:700; color:var(--ink);}
+  h3.sub .n{color:var(--accent); margin-right:.4em;}
+  h2.sec .n{color:var(--accent); margin-right:.45em; font-variant-numeric:tabular-nums;}
+  p{margin:0 0 12px; text-align:justify; hyphens:auto;}
+  ol.contrib{margin:4px 0 14px; padding-left:22px;}
+  ol.contrib li{margin:0 0 9px;}
+  strong{font-weight:700;} em{font-style:italic;}
+  a{color:var(--link); text-decoration:none; border-bottom:1px solid transparent;}
+  a:hover{border-bottom-color:var(--link);}
+  figure{margin:22px 0; text-align:center;}
+  figure img{max-width:100%; height:auto; border:1px solid var(--rule); border-radius:4px; background:#fff;}
+  figcaption{font-size:13.5px; color:var(--muted); margin-top:8px; text-align:left;
+    font-family:var(--sans); line-height:1.5;}
+  figcaption .lbl{color:var(--ink); font-weight:700;}
+  .tablewrap{margin:22px 0; overflow-x:auto;}
+  .tcap{font-size:13.5px; color:var(--muted); margin:0 0 8px; font-family:var(--sans); line-height:1.5;}
+  .tcap .lbl{color:var(--ink); font-weight:700;}
+  table.data{border-collapse:collapse; width:100%; font-size:13px; font-family:var(--sans);}
+  table.data th, table.data td{padding:7px 9px; text-align:center; border-bottom:1px solid var(--rule);}
+  table.data thead th{background:var(--tablehdr); border-top:2px solid var(--ink);
+    border-bottom:1.5px solid var(--ink); font-weight:700;}
+  table.data tbody tr:nth-child(even){background:var(--tablestripe);}
+  table.data td:first-child, table.data th:first-child{text-align:left; font-weight:600;}
+  .foot{font-size:11.5px; color:var(--muted); font-family:var(--sans); margin-top:6px; line-height:1.45;}
+  .chip{display:inline-block; width:10px; height:10px; border-radius:2px; vertical-align:middle; margin-right:4px;}
+  .backmatter h2.sec{font-size:17px;}
+  .refs{font-family:var(--sans); font-size:13px; line-height:1.5;}
+  .refs p{text-align:left; margin:0 0 7px; padding-left:22px; text-indent:-22px;}
+  .note{font-size:12.5px; color:var(--muted); font-family:var(--sans); font-style:italic;}
+  hr.soft{border:none; border-top:1px solid var(--rule); margin:30px 0;}
+  sub{font-size:.8em;}
+  @media (max-width:560px){
+    body{font-size:16px;} .page{padding:34px 16px 70px;} h1.doctitle{font-size:24px;} p{text-align:left;}
+  }
+  @media print{ body{font-size:11pt;} .page{max-width:none; padding:0;} a{color:inherit;} }
+</style>
+</head>
+<body>
+<main class="page">
+
+<header class="title">
+  <h1 class="doctitle">Cheap Evidence, Hard Errors:<br>Verifying Document Extraction Without Another Generative-Model Call</h1>
+  <div class="authors">Anonymous Author(s)</div>
+  <div class="affil">Submission under double-blind review</div>
+  <div class="venue">NAACL 2027 &middot; Industry Track</div>
+</header>
+
+<section class="abstract">
+  <h2>Abstract</h2>
+  <p>Document information-extraction systems are deployed at scale, but their outputs still need checking before they can be processed without a human. The dominant way to decide which outputs to trust is to spend another model call&mdash;a second large-language-model pass or a vision-language comparison&mdash;which is exactly the cost a production pipeline is trying to avoid. We ask how far <em>cheap, in-document evidence</em> goes instead. We present <strong>Evidence-Based Verification (EBV)</strong>, a single verifier that scores extracted <strong>fields and tables</strong> using only evidence the pipeline already produced&mdash;spatial geometry for structured fields, text signals for free-form fields, and grid structure for tables&mdash;<strong>with no additional generative (LLM/VLM) call</strong>, and with one optional, lightweight, non-generative OCR pass as an independent witness for table content. Across public benchmarks for structured fields, variable-layout fields, and tables, and on a proprietary multi-type mortgage corpus, EBV ranks correct over incorrect extractions with AUROC 0.71&ndash;0.99 (the low end a hard long-document domain) and catches 75&ndash;100% of errors at its operating point, above the zero-cost signals already in a pipeline (a per-field prior, 0.63; value-in-source, &le;0.59; and the extractor's own token-logprobs, which published results put at &asymp;0.58&ndash;0.64). We then characterise what cheap evidence <em>cannot</em> catch: one independent OCR witness adds +0.12 AUROC on tables that structure alone misses, an empty-field prior is the single most load-bearing feature on free-form fields, and a small residual of <em>confidently-wrong</em> outputs&mdash;&asymp;1.5% of non-empty field errors and 10.6% of table errors&mdash;survives every cheap channel. These <em>hard errors</em> share one signature: a value or grid that is internally consistent but placed wrong (a cross-field copy, a correct-looking value from the wrong place, a content-preserving table scramble). None are source-ambiguous&mdash;the evidence to catch them is in the document&mdash;so this is a cost/coverage frontier, and we report where an extra reading becomes worth paying for.</p>
+</section>
+
+<h2 class="sec"><span class="n">1</span>Introduction</h2>
+<p>Modern document pipelines extract hundreds of fields and tables per document with large language and vision-language models, then face a question the extractor does not answer: <em>which outputs can be processed automatically, and which must a person check?</em> In production the cost that matters is human review time, and the lever is a verifier that auto-accepts what it can vouch for and routes the rest. The verifier's own cost is easy to overlook: the common recipe&mdash;re-prompting the extractor, sampling it, or running a second vision-language model to re-read the page&mdash;adds a generative inference per decision, the very expense the pipeline was built to avoid.</p>
+<p>We take the opposite stance and ask a narrow, deployment-driven question: <strong>how much of an extractor's errors can be caught using only evidence the pipeline already has, without another generative-model call?</strong> The evidence we allow is cheap and on hand&mdash;the OCR tokens and coordinates, the extracted value and its field name, and the extracted table's own structure&mdash;plus, optionally, a single pass of a lightweight OCR reader as an independent witness for table content. Nothing re-invokes a <em>generative</em> language or vision model.</p>
+<p>We instantiate this as <strong>Evidence-Based Verification (EBV)</strong>, one verifier with a single accept/route contract realised in three modes: a spatial verifier for structured (template) fields (ROI), a signal verifier for variable-layout fields (Signal), and a structural verifier for tables (Table-Trust). A document is auto-approved only when every unit is accepted; otherwise it is routed. We evaluate on public benchmarks spanning all three modes and on a proprietary multi-type mortgage corpus, using mid-tier open extractors as a realistic error source, and compare against the zero-cost confidence signals already present in a pipeline.</p>
+<p>Our contributions:</p>
+<ol class="contrib">
+  <li><strong>One cheap verifier across granularities under a no-generative-call budget.</strong> Unlike prior document verifiers&mdash;which operate on fields only, or (RaV-IDP) span granularities but fall back to a vision-language model&mdash;EBV scores structured fields, variable-layout fields, and tables under one accept/route contract with <strong>no additional generative call</strong>, beating the pipeline's free confidence signals, including published token-logprob baselines (&sect;5).</li>
+  <li><strong>An evidence-cost ladder.</strong> We price what each tier of cheap evidence buys: on tables, HTML-structure-only verification reaches AUROC 0.76, an independent OCR witness alone reaches 0.84, and together they reach 0.88 (+0.12 over structure)&mdash;a concrete recipe for when the extra reading is worth it (&sect;5.2, &sect;6).</li>
+  <li><strong>Deployment lessons practitioners can act on.</strong> We expose where the signal comes from&mdash;on free-form fields the empty-field prior is the single most load-bearing feature&mdash;and name, with frequencies and operating-point catch rates, the residual error families: the hard tail in every mode is a <em>plausible-but-wrong</em> output (cross-field copy, correct-looking value from the wrong place, content-preserving table scramble) that is internally consistent and so hardest to contradict. A small residual (&asymp;1.5% of non-empty field errors, 10.6% of table errors) survives every cheap channel; none are source-ambiguous, so it is a cost frontier, not a wall (&sect;6).</li>
+  <li><strong>A proprietary, real-deployment validation.</strong> On an internal mortgage corpus across five document types, EBV reaches AUROC 0.93&ndash;0.99 on fields and catches 31/34 table defects, while we report where it over-rejects and where coverage collapses under a very-high-error extractor (&sect;5.3, &sect;6).</li>
+</ol>
+<p>Throughout we separate <em>capability</em> (how well the trust score ranks correct over incorrect, by AUROC) from the <em>deployed decision</em> (coverage at a fixed review budget), and calibrate thresholds on a held-out split so reported coverage reflects deployment, not hindsight.</p>
+
+<h2 class="sec"><span class="n">2</span>Related Work</h2>
+<p><strong>Confidence estimation and selective acceptance for document extraction.</strong> A growing line attaches a confidence signal to document key-information-extraction (KIE) outputs to decide which fields auto-accept versus route. Early engines such as HYCEDIS (Nguyen et al., 2021) fuse OCR, box-localization and key&ndash;value signals through a conformal predictor, tied to a specific stack. Targeting LLM/VLM extractors, ExtractConf (Kumar, 2026) shows document- and OCR-grounded signals outperform raw token log-probabilities and fuses them with a gradient-boosted model; ConfBench (Roy et al., 2026) benchmarks VLM-confidence calibration under controlled degradations and reports token-logprob baselines in the 0.58&ndash;0.64 AUROC range on RealKIE-style fields; and Valid Per-Field Selective Risk Control (Gurram, 2026) adds distribution-free guarantees to the per-field decision. The closest system on the fields side, Perception&ndash;Layout&ndash;Validation (Jin et al., 2026), decomposes confidence into perception, layout, and validation channels and gates straight-through processing with conformal risk control, reporting AUROC 0.990&ndash;0.997 on FATURA. Most of these operate on fields only, and several spend at least one additional LLM or VLM call at decision time (e.g. Jin et al.'s two-VLM comparison). Our Signal verifier shares the tabular-fusion-over-document-signals idea with ExtractConf; our contribution is not that fusion but the single contract across tables and fields under a no-generative-call budget, with a baseline comparison and a detectability account.</p>
+<p><strong>Verification for tables, and across granularities.</strong> Table extraction has a separate literature. Uncertainty-aware table extraction (Ajayi et al., 2025) and structure-recognition UQ (Ajayi et al., 2024) flag unreliable cells by aggregating the pipeline's own structure/OCR confidence rather than verifying content against an independent reading; QUEST (Thomas et al., 2025) trains a dedicated quality model; DEC (Xiao et al., 2026) repairs table-parse errors with an agentic vision-model controller. RaV-IDP (Jha, 2026) spans text, tables and images with a label-free &ldquo;reconstruction-as-validation&rdquo; signal <strong>and a vision-language-model fallback</strong>&mdash;the generative call our budget forbids.</p>
+<p><strong>Selective prediction and detectability.</strong> Deciding to accept versus abstain is classical selective prediction (Chow, 1970; El-Yaniv and Wiener, 2010; Geifman and El-Yaniv, 2017, 2019), summarised by the risk&ndash;coverage curve; distribution-free guarantees on the accepted set come from conformal risk control (Angelopoulos and Bates, 2021). Rabanser and Papernot (2025) decompose the selective-classifier gap into additive terms including an irreducible floor; Pandey et al. (2026) show confident LLM-QA errors can be surface-indistinguishable from correct ones. We adapt the spirit to in-document evidence but scope our claims to an <em>empirical, evidence-relative</em> account&mdash;how the catchable set changes as cheap evidence is added&mdash;not a fundamental limit.</p>
+<p><strong>Reference-free QE and LLM uncertainty.</strong> Reference-free quality estimation scores a hypothesis from the source alone (Rei et al., 2020, 2022); LLM hallucination detectors&mdash;semantic entropy (Kuhn et al., 2023; Farquhar et al., 2024), SelfCheckGPT (Manakul et al., 2023), P(True) (Kadavath et al., 2022)&mdash;flag likely-wrong outputs through repeated sampling or self-evaluation, again at the cost of extra generative passes.</p>
+
+<h2 class="sec"><span class="n">3</span>Method</h2>
+<p>We call the system <strong>Evidence-Based Verification (EBV)</strong>. It sits after extraction and, for every returned value, decides accept or route using only in-document evidence and existing pipeline artifacts&mdash;adding no generative inference. EBV has one decision contract (&sect;3.1) realised by three mode-specific verifiers (&sect;3.2&ndash;3.4) and a cost accounting (&sect;3.5).</p>
+
+<h3 class="sub"><span class="n">3.1</span>Shared formulation</h3>
+<p>A pipeline reads document <em>d</em> and returns units <em>U(d)</em>; a unit is a <strong>field</strong> (key&ndash;value) or a <strong>table</strong> (HTML grid). EBV outputs <em>a(u)&nbsp;&isin;&nbsp;{accept, route}</em>; <strong>accept</strong> means auto-processed, <strong>route</strong> means sent to a reviewer. The document is accepted iff every unit is: <em>A(d)=accept iff a(u)=accept &forall;u</em>&mdash;one unverified value suffices to open the document. Mode is selected from an upstream structured-type label (EBV does no classification): tables &rarr; structural; structured-type fields &rarr; spatial; else &rarr; signal. Each verifier also records its per-channel evidence, the input to &sect;6.</p>
+
+<h3 class="sub"><span class="n">3.2</span>Structured fields: spatial verification (ROI)</h3>
+<p>On a fixed template each field occupies a stable region. <strong>Offline</strong>, from that template's labelled split (a document-disjoint split within the template), EBV learns per field: a <strong>region of interest</strong> (outlier-trimmed union of the field's word boxes), a <strong>calibrated rule</strong> (weights over three spatial agreements and an accept threshold), and <strong>context keywords</strong>. <strong>Online</strong>, it maps the value to its box via OCR tokens (disambiguating repeats with keywords) and computes <strong>overlap</strong>, <strong>center distance</strong> and <strong>IoU</strong> with the ROI, combined into a calibrated weighted vote; strong keyword context gives a bounded boost, and a habitually-empty field is accepted when blank.</p>
+
+<h3 class="sub"><span class="n">3.3</span>Variable-layout (free-form) fields: signal verification (Signal)</h3>
+<p>Without a template, EBV reads field name, value and page text and computes six deterministic signals (no model call): <strong>format validity</strong>, <strong>keyword context</strong>, <strong>source context</strong>, <strong>value-in-text</strong>, <strong>label&ndash;value distance</strong>, and a <strong>partial-extraction</strong> penalty. Per document type it trains a small pair of tabular classifiers offline on that type's labelled split; a field is accepted only when both agree. For AUROC we rank by the classifier's continuous probability (mean of the pair); the accept/route decision is the pair-agreement at the deployed operating point. Two deterministic safeguards sit on top: <strong>hard gates</strong> (type mismatch, blatant cross-field copy, empty amount) and an <strong>empty-field prior</strong> (learned per field) that promotes a correctly-empty field from route to accept.</p>
+
+<h3 class="sub"><span class="n">3.4</span>Tables: structural verification (Table-Trust)</h3>
+<p>A table is an HTML grid; the verifier asks whether the grid is coherent and whether its text is faithful. <strong>Geometry</strong> checks logical validity (overlaps, holes, impossible spans). <strong>Structural plausibility</strong> checks the populated grid (per-row fill, header-to-column counts; flags over-segmented/phantom columns and mis-placed cells). <strong>Text conservation</strong> compares HTML cell text against an <strong>independent OCR reading of the table region</strong> (&sect;3.5), flagging merges/drops. The trust score is a weighted average, reported with failure flags; a table is accepted when the score clears a threshold fixed on a disjoint calibration split. When no OCR witness is available the table is scored on geometry and structure only.</p>
+
+<h3 class="sub"><span class="n">3.5</span>Cost accounting</h3>
+<p>The verification adds <strong>no generative (LLM/VLM) call</strong>. The spatial verifier is deterministic geometry over OCR tokens the pipeline already produced. The signal verifier runs deterministic string/format checks scored by small <em>local</em> tabular classifiers (gradient-boosted trees), not a generative model. The table verifier runs deterministic structural checks and, for its text-conservation component, uses an <strong>independent OCR witness</strong>: a single pass of a lightweight, non-generative OCR engine (docTR) over the table region, distinct from the engine that produced the pipeline tokens. This witness is the one optional extra inference in the system; it is <strong>not</strong> a generative call and we price it explicitly on the evidence-cost ladder (&sect;5.2). The only decision-time models are thus the local classifiers and this optional OCR pass&mdash;no new language- or vision-<em>generative</em> call is made, the property the paper quantifies.</p>
+
+<h2 class="sec"><span class="n">4</span>Experimental Setup</h2>
+<p><strong>Datasets and modes.</strong> <em>Structured fields:</em> <strong>FATURA</strong> (synthetic templated invoices), <strong>VRDU Registration-Forms</strong> (real FARA filings). <em>Variable-layout fields:</em> <strong>RealKIE</strong> FCC invoices, SEC S-1 filings, UK charity reports&mdash;three domains with different layouts and base error rates. <em>Tables:</em> <strong>RD-TableBench</strong>. We also report a proprietary deployment corpus, <strong>ROCKET</strong>, of U.S. mortgage documents across five types, exercising all three modes on one document pool.</p>
+<p><strong>Extractors as error source.</strong> The object of verification is an extractor's output, so we use open, self-hostable mid-tier extractors&mdash;<strong>NuExtract-3</strong> (served locally) for fields and <strong>MinerU</strong> for tables&mdash;across datasets as the supplier of natural mistakes; they are not the systems under evaluation. On ROCKET the field extractor yields 17&ndash;43% error rates (thousands of errors).</p>
+<p><strong>Ground truth and correctness.</strong> For fields, a prediction is correct under normalised bidirectional containment against the dataset gold value (on ROCKET, the production system's human-verified value). For tables, ground truth is a GOOD/BAD judgement of HTML fidelity to the table in the page image (fused, truncated, or dropped values are defects). Two reporting details we state plainly: on <strong>FATURA</strong>, strict-exact scoring mislabels spatially-correct values whose string differs (type-A, 20.8% of raw errors); we relabel these as correct by containment and keep the genuine in-place errors (type-C, 3.8% of predictions), which places true capability in [0.865, 0.994]. On the Signal benchmarks we report <strong>scalar fields</strong> (line-item fields, which the extractor handles far worse, are reported separately; including them lowers FCC AUROC from 0.897 to 0.825). Splits are document-disjoint (and template-disjoint across templates); ROI and Signal verifiers are trained per document type on that type's calibration split&mdash;a labelled-data cost, not frozen cross-domain transfer.</p>
+<p><strong>Baselines.</strong> On the field benchmarks we compare EBV against the zero-cost signals a pipeline already has: a <strong>per-field emptiness prior</strong> (how often the field is blank), a <strong>value-in-source</strong> rule (does the value occur in the page), and the extractor's own <strong>token-logprobs</strong>. We cite published token-logprob results (ConfBench, &asymp;0.58&ndash;0.64 AUROC on RealKIE-style fields) rather than re-run them, since our deployed extractor's logprobs are not stored; see Limitations.</p>
+<p><strong>Metrics and protocol.</strong> We report <em>capability</em>&mdash;<strong>AUROC</strong> of the trust score ranking correct over incorrect&mdash;and the <em>deployed decision</em>&mdash;<strong>coverage at a fixed &le;5% review budget</strong> (fraction auto-accepted while held-out error &le;5%; the threshold is chosen on a calibration split, and we report the realised test risk) for fields, and for tables <strong>bad-catch</strong> and <strong>false-reject</strong> at a precision-first threshold. We report base error rate and n for every number, with document-clustered bootstrap 95% CIs where a conclusion rests on them. AUROC uses a tie-aware estimator.</p>
+
+<h2 class="sec"><span class="n">5</span>Results</h2>
+
+<figure>
+  <img src="figures/fig_results.png" alt="Bar charts of EBV AUROC across public benchmarks and the proprietary ROCKET deployment, colored by mode.">
+  <figcaption><span class="lbl">Figure 1.</span> EBV verification capability across all three modes, without an extra generative-model call. Left: public benchmarks. Right: proprietary ROCKET deployment. Bars colored by mode
+  (<span class="chip" style="background:var(--struct)"></span>structured fields,
+  <span class="chip" style="background:var(--unstr)"></span>variable-layout fields,
+  <span class="chip" style="background:var(--tab)"></span>tables).</figcaption>
+</figure>
+
+<h3 class="sub"><span class="n">5.1</span>Fields</h3>
+<p>Table 1 reports field verification (Figure 1 summarises AUROC across all three modes). EBV's trust score ranks correct over incorrect extractions above every zero-cost baseline where a baseline is measurable: the per-field prior reaches 0.63 (S-1) and value-in-source 0.53&ndash;0.59, and published token-logprob baselines sit at 0.58&ndash;0.64&mdash;all below EBV's 0.71&ndash;0.99. On FATURA, EBV reaches 0.994 at no extra call, matching the AUROC range reported for a fused multi-call system (0.990&ndash;0.997). The hard case is charity reports (0.71): long documents where a value's mere presence in page text is weakly diagnostic, and the one domain where the &le;5% budget is not quite met on test (realised risk 5.5%).</p>
+
+<div class="tablewrap">
+  <p class="tcap"><span class="lbl">Table 1.</span> Field verification. n (field decisions, scalar fields), base error rate, EBV fused AUROC with 95% CI (&Dagger;bound), zero-cost baselines, and coverage at a &le;5% review budget (realised test risk in parentheses). Dashes mark baselines not computed for the ROI legs; ROI coverage is empirical test coverage at &le;5% (no separate calibration split, hence no realised-risk figure). "n/a" marks a prior with no usable variance on that domain.</p>
+  <table class="data">
+    <thead>
+      <tr><th>Benchmark</th><th>Mode</th><th>n</th><th>base err</th><th>EBV AUROC (95% CI;&nbsp;‡bound)</th><th>logprob†</th><th>prior</th><th>presence</th><th>cov@&le;5%</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>FATURA</td><td>ROI</td><td>36,370</td><td>23.5%<sup>&Dagger;</sup></td><td><strong>0.994</strong> [0.865, 0.994]<sup>&Dagger;</sup></td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td><td>70%</td></tr>
+      <tr><td>VRDU</td><td>ROI</td><td>2,647</td><td>20.6%</td><td><strong>0.896</strong></td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td><td>71%</td></tr>
+      <tr><td>FCC</td><td>Signal</td><td>240</td><td>11.3%</td><td><strong>0.897</strong> (0.83&ndash;0.96)</td><td>0.58&ndash;0.64</td><td>n/a</td><td>0.53</td><td>81% (2.1%)</td></tr>
+      <tr><td>S-1</td><td>Signal</td><td>37,277</td><td>3.2%</td><td><strong>0.960</strong> (0.95&ndash;0.97)</td><td>0.58&ndash;0.64</td><td>0.63</td><td>0.59</td><td>100% (3.3%)<sup>¶</sup></td></tr>
+      <tr><td>Charities</td><td>Signal</td><td>1,522</td><td>7.0%</td><td><strong>0.713</strong> (0.66&ndash;0.77)</td><td>0.58&ndash;0.64</td><td>n/a</td><td>0.53</td><td>79% (5.5%)</td></tr>
+    </tbody>
+  </table>
+  <p class="foot"><sup>&dagger;</sup>token-logprob AUROC is a published reference range (ConfBench, RealKIE-style), not computed on our split. <sup>&Dagger;</sup>FATURA base error is under the A-handled correctness rule (spatially-correct type-A values relabelled correct; raw strict-exact error is 29.7%); the [0.865, 0.994] bracket is a capability bound (strict-exact lower, containment-tolerant upper), not a bootstrap CI. <sup>¶</sup>S-1 base error (3.2%) is already below 5%, so accept-all meets the budget; a tighter budget is the meaningful one there.</p>
+</div>
+
+<h3 class="sub"><span class="n">5.2</span>Tables and the evidence-cost ladder</h3>
+<p>On RD-TableBench the verifier is a precision-first catch classifier: on the full 460-table set (78% defective) it routes defective tables with <strong>bad-catch 0.90 at precision 0.81</strong>; on a 287-table subset with per-channel evidence re-emitted (218 defective, 69 faithful) bad-catch is 0.84 at AUROC 0.88. We do not claim coverage on RD&mdash;at this defect rate there is little to auto-accept&mdash;so coverage is demonstrated on fields and ROCKET, not here.</p>
+<p>The central result is the <strong>evidence-cost ladder</strong> (Figure 2, Table 2), computed on the 287-table subset: HTML-structure-only evidence (four internal signals, re-fused) reaches AUROC 0.76; the independent OCR witness <strong>alone</strong> reaches 0.84&mdash;the single strongest channel&mdash;and structure plus witness reaches 0.88 (<strong>+0.12</strong> over structure-only; unrounded 0.761&rarr;0.879). The witness catches content merges and drops that structure cannot see. Witness weights and the accept threshold are fixed on a disjoint calibration split.</p>
+
+<figure>
+  <img src="figures/fig_cost_ladder.png" alt="Bar chart: HTML structure only reaches AUROC 0.76; adding one OCR witness reaches 0.88, a +0.12 gain." style="max-width:460px;">
+  <figcaption><span class="lbl">Figure 2.</span> The evidence-cost ladder on tables (RD-TableBench). One independent, non-generative OCR pass buys +0.12 AUROC over structure-only verification.</figcaption>
+</figure>
+
+<div class="tablewrap">
+  <p class="tcap"><span class="lbl">Table 2.</span> Evidence-cost ladder (RD-TableBench, 287-table subset). AUROC of defective-vs-faithful ranking per evidence tier and the additional inference each requires.</p>
+  <table class="data">
+    <thead><tr><th>Evidence tier</th><th>Additional inference</th><th>AUROC</th></tr></thead>
+    <tbody>
+      <tr><td>HTML structure only</td><td>none</td><td>0.76</td></tr>
+      <tr><td>Independent OCR witness only</td><td>1 non-generative OCR pass</td><td>0.84</td></tr>
+      <tr><td>Structure + witness (full)</td><td>1 non-generative OCR pass</td><td><strong>0.88</strong></td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h3 class="sub"><span class="n">5.3</span>Proprietary deployment (ROCKET)</h3>
+<p>EBV verifies the extractor across all three modes on one mortgage corpus (Table 3). On fields it catches a 17&ndash;43%-error extractor at AUROC 0.93&ndash;0.99; coverage tracks the error rate&mdash;86% auto-accepted on loan applications, but only 2% on bank statements where the extractor is wrong 43% of the time (strong ranking, little safely auto-acceptable&mdash;the honest capability/coverage split). On tables, across three types (n=105, 34 defective), the verifier catches <strong>31/34</strong> defects (0.91; 95% CI 0.76&ndash;0.98)&mdash;fused credit late-counts ("30/0"&rarr;"300"), truncated payment histories, and dropped rows&mdash;at a 24/71 (0.34) false-reject rate, over-rejecting atypical layouts (blank reconciliation forms, flattened-but-faithful dumps, most on credit reports). The combined table AUROC is 0.82. We are not aware of a prior single no-extra-generative-call verifier evaluated across structured fields, free-form fields, and tables on one real corpus.</p>
+
+<div class="tablewrap">
+  <p class="tcap"><span class="lbl">Table 3.</span> ROCKET deployment. Loan application and underwriting findings share one document pool, hence the same n.</p>
+  <table class="data">
+    <thead><tr><th>Doc type</th><th>Mode</th><th>n</th><th>errors</th><th>AUROC</th><th>cov@&le;5%</th></tr></thead>
+    <tbody>
+      <tr><td>Loan application</td><td>ROI</td><td>5,970</td><td>1,018 (17%)</td><td>0.95</td><td>86%</td></tr>
+      <tr><td>Closing disclosure</td><td>ROI</td><td>3,300</td><td>574 (17%)</td><td>0.95</td><td>81%</td></tr>
+      <tr><td>Underwriting findings</td><td>Signal</td><td>5,970</td><td>1,602 (27%)</td><td>0.99</td><td>75%</td></tr>
+      <tr><td>Bank statements</td><td>Signal</td><td>1,330</td><td>567 (43%)</td><td>0.94</td><td>2%</td></tr>
+      <tr><td>Credit reports</td><td>Signal</td><td>3,204</td><td>1,133 (35%)</td><td>0.93</td><td>34%</td></tr>
+      <tr><td>Tables (CD/bank/credit)</td><td>Table-Trust</td><td>105</td><td>34 defective</td><td>0.82</td><td>bad-catch 0.91; FRR 0.34</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 class="sec"><span class="n">6</span>Analysis: what cheap evidence buys, and the hard errors</h2>
+<p><strong>An extra reading is worth it for table content.</strong> The ladder (&sect;5.2) localises <em>where</em> evidence matters: structure catches grid defects but is blind to content substitution; the independent OCR witness distinguishes a faithful grid from one with merged/dropped text, for one non-generative pass. Notably the witness alone (0.84) outranks structure alone (0.76)&mdash;on these tables, re-reading the content is more informative than inspecting the grid, and the two together reach 0.88.</p>
+<p><strong>On free-form fields, the empty-field prior is the single most load-bearing feature.</strong> A drop-one ablation of a surrogate tabular classifier that reproduces the deployed Signal probabilities (pooled, but ~95% S-1 by instance count, so effectively an S-1 statement) shows that removing the empty-field prior drops AUROC from 0.957 to 0.654 (&Delta;0.30)&mdash;more than any content signal&mdash;because many extractor errors are empty outputs on habitually-populated fields (944 of 1,334 Signal errors). The content signals are individually informative but mutually redundant: dropping any one costs &asymp;0, because the others cover it. We credit content signals for what they add beyond this cheap prior, and we scope the claim: on FCC and Charities the prior has no usable variance (Table 1), so the 0.90/0.71 there is genuinely content-derived.</p>
+<p><strong>The residual errors look right.</strong> The verifier catches most of every error family (caught at its operating point: source-absent 47&rarr;1.00, wrong-value-in-source 313&rarr;0.97, empty-output 944&rarr;0.79, cross-field-copy 30&rarr;0.83 on Signal; data-loss 99&rarr;0.84, column-explosion 94&rarr;0.83, scramble 22&rarr;0.82 on RD tables). What survives is small and shares one signature. Separating genuine wrong <em>values</em> from extractor-empty misses, the <strong>confidently-wrong residual</strong>&mdash;outputs accepted and scored at least as clean as a median-correct output&mdash;is <strong>6/397 = 1.5%</strong> of non-empty Signal errors (S-1 0%, FCC 0%, Charities 7.0%) and <strong>10.6%</strong> [5.8, 17.1] of RD-table errors. In every mode the hard tail is <em>plausible-but-wrong</em>: a field <strong>cross-field copy</strong> (a valid value from the wrong field; the lowest-caught non-empty family, 0.83 on Signal and 0.60 on VRDU) and a table <strong>scramble</strong> (content-preserving reorder; 0.82). The proprietary tables show the same shape: one confident miss drops a document's loan-type checkboxes while keeping a perfectly valid grid, which the structural score trusts completely (trust 100). Adjudicating all 29 confidently-wrong cases (RD 23 + Signal 6), <strong>none is source-ambiguous</strong>&mdash;the information needed to catch each is present in the document&mdash;so this is a <em>cost/coverage frontier</em>, catchable with more evidence or a model call, not a fundamental wall.</p>
+<p><strong>Where cheap verification over-rejects.</strong> Honesty about the boundary is itself a lesson. On RD-TableBench, being precision-first costs a high false-reject at 78% defect (precision 0.81), which is why we claim catch there, not coverage. On the proprietary tables the verifier over-rejects atypical layouts for a 0.34 false-reject rate it accepts in exchange for 0.91 catch, and on bank statements&mdash;where the extractor is wrong 43% of the time&mdash;field coverage collapses to 2% even though ranking stays at 0.94. These are the points at which the cheap check should defer to a stronger reader.</p>
+
+<h2 class="sec"><span class="n">7</span>Conclusion</h2>
+<p>We asked how far cheap, in-document evidence goes toward verifying document-extraction outputs without another generative-model call, and answered it across structured fields, variable-layout fields, and tables with one verifier. Cheap evidence ranks correct over incorrect at AUROC 0.71&ndash;0.99 and catches 75&ndash;100% of errors at its operating point&mdash;above the free pipeline signals including published token-logprob baselines&mdash;and we price the one reading that matters: an independent OCR witness buys +0.12 AUROC on table content and is the single strongest table channel. The errors it cannot catch are the ones that look right&mdash;cross-field copies, correct-looking values from the wrong place, content-preserving table scrambles&mdash;a small confidently-wrong residual (&asymp;1.5% of non-empty field errors, 10.6% of table errors) that is nonetheless not source-ambiguous. The practical result is a cost-tiered recipe: what each tier of evidence buys, where coverage collapses under a very-wrong extractor, and where paying for an extra reading is finally worth it.</p>
+
+<hr class="soft">
+<div class="backmatter">
+
+<h2 class="sec">Limitations</h2>
+<p>(i) The proprietary corpus and parts of the pipeline are internal; those results are not independently reproducible, and we release code and public-benchmark configurations but not proprietary data. (ii) ROCKET field ground truth is the production pipeline's human-verified value; where production routing and our verifier respond to related signals, this may flatter agreement on the accept side, and an independent audit of accepted-as-correct fields is future work. (iii) We do not compare against an equal-cost LLM-judge; our claim is catching errors <em>without</em> such a call. We also do not re-run the extractor's token-logprobs on our splits and instead cite published values (&sect;4); a matched logprob column is a natural addition. (iv) Cross-domain results evaluate the verifier on new datasets and require labelled data per type; they are not a frozen-model distribution-shift test. (v) On free-form fields a large share of the deployed signal is an empty-field prior (&sect;6), which we expose rather than present as content understanding; and the error-family mix (71% empty outputs) is a property of this extractor&mdash;a stronger extractor would shift mass toward the plausible-but-wrong tail. (vi) The detectability account is empirical and evidence-relative&mdash;which errors the permitted evidence separates&mdash;not a fundamental limit. (vii) Defective-but-faithful tables are scarce in public benchmarks, so table conclusions rest on modest faithful-table counts (69 on RD, 71 on ROCKET) with the CIs reported in &sect;5&ndash;&sect;6. (viii) We report per-unit decisions; the document-level conjunction (&sect;3.1) is deployment-configurable by field criticality, and we do not report a single document-level auto-approval rate.</p>
+
+<h2 class="sec">Ethics Statement</h2>
+<p>EBV reduces human review burden by auto-accepting outputs it can support and never removing the human from the loop for those it cannot; the document-level conjunction is intentionally conservative. The proprietary corpus contains personal and financial information and was handled under its owner's data agreements; we release only aggregate metrics&mdash;no document content, field values, or decision logs. Because routing shapes downstream workflows, EBV is a selective-acceptance aid, not an autonomous decision-maker, and its false-accept/false-reject behaviour (&sect;5&ndash;&sect;6) must be re-validated per deployment, vendor and document type before any automation threshold is set.</p>
+
+<h2 class="sec">References</h2>
+<p class="note">Draft reference list; a few keys are unverified against source and are flagged in the versioning file. Verify all entries before submission.</p>
+<div class="refs">
+<p>Ajayi, K., et al. 2024. Uncertainty quantification for table structure recognition. <em>Preprint</em>.</p>
+<p>Ajayi, K., et al. 2025. Uncertainty-aware table extraction from documents. <em>Preprint</em>.</p>
+<p>Angelopoulos, A. N., and Bates, S. 2021. A gentle introduction to conformal prediction and distribution-free uncertainty quantification. <em>Preprint</em>.</p>
+<p>Chow, C. K. 1970. On optimum recognition error and reject tradeoff. <em>IEEE Transactions on Information Theory</em>.</p>
+<p>El-Yaniv, R., and Wiener, Y. 2010. On the foundations of noise-free selective classification. <em>JMLR</em>.</p>
+<p>Farquhar, S., Kossen, J., Kuhn, L., and Gal, Y. 2024. Detecting hallucinations in large language models using semantic entropy. <em>Nature</em>.</p>
+<p>Geifman, Y., and El-Yaniv, R. 2017. Selective classification for deep neural networks. <em>NeurIPS</em>.</p>
+<p>Geifman, Y., and El-Yaniv, R. 2019. SelectiveNet: A deep neural network with an integrated reject option. <em>ICML</em>.</p>
+<p>Gurram, S. 2026. Valid per-field selective risk control for document extraction. <em>Preprint</em>.</p>
+<p>Jha, A. 2026. RaV-IDP: Reconstruction-as-validation for intelligent document processing. <em>Preprint</em>.</p>
+<p>Jin, H., et al. 2026. Perception&ndash;layout&ndash;validation confidence for straight-through document processing. <em>Preprint</em>.</p>
+<p>Kadavath, S., et al. 2022. Language models (mostly) know what they know. <em>Preprint</em>.</p>
+<p>Kuhn, L., Gal, Y., and Farquhar, S. 2023. Semantic uncertainty: Linguistic invariances for uncertainty estimation in natural language generation. <em>ICLR</em>.</p>
+<p>Kumar, A. 2026. ExtractConf: Document-grounded confidence for LLM/VLM extraction. <em>Preprint</em>.</p>
+<p>Manakul, P., Liusie, A., and Gales, M. J. F. 2023. SelfCheckGPT: Zero-resource black-box hallucination detection for generative large language models. <em>EMNLP</em>.</p>
+<p>Nguyen, et al. 2021. HYCEDIS: Hybrid confidence estimation for document information extraction. <em>Preprint</em>.</p>
+<p>Pandey, et al. 2026. On the indistinguishability of confident LLM question-answering errors. <em>Preprint</em>.</p>
+<p>Rabanser, S., and Papernot, N. 2025. Decomposing the selective-classification gap. <em>Preprint</em>.</p>
+<p>Rei, R., Stewart, C., Farinha, A. C., and Lavie, A. 2020. COMET: A neural framework for MT evaluation. <em>EMNLP</em>.</p>
+<p>Rei, R., et al. 2022. COMET-22: Reference-free quality estimation. <em>WMT</em>.</p>
+<p>Roy, et al. 2026. ConfBench: Benchmarking VLM confidence calibration for document extraction. <em>Preprint</em>.</p>
+<p>Thomas, et al. 2025. QUEST: A quality model for extracted tables. <em>Preprint</em>.</p>
+<p>Xiao, et al. 2026. DEC: Agentic document-table error correction. <em>Preprint</em>.</p>
+<p class="note">Datasets: FATURA; VRDU (Wang et al., 2023); RealKIE; RD-TableBench. Extractors: NuExtract-3 (fields), MinerU (tables). OCR witness: docTR.</p>
+</div>
+
+</div>
+</main>
+</body>
+</html>

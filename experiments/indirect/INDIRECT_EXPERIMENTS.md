@@ -6,6 +6,13 @@ results by re-scoring the stored per-channel evidence (no re-extraction). They a
 validity checks. **Every leg is reconciled to the paper's finalized config + GT + correctness
 before any indirect number is computed.**
 
+> **Reconciliation (this doc = the paper's canonical run), 2026-10-27.** Updated to the finalized
+> **`accept_3t`** decision rule (both model-pair classifiers must agree) and the **Oct-27 regenerated**
+> proper-cluster-bootstrap CIs — the exact numbers the paper reports. The §2 final table
+> (caught@deployed, frontier, RD CI), the §4 Signal detectability map, and the §5b frontier counts now
+> reflect `accept_3t`. The **E4c** 5%-false-review-budget decomposition (§5b) is a separate
+> single-channel analysis and keeps its own budget framing.
+
 ## 0. Metric correction (important — read first)
 
 An earlier pass reported "undetectable = errors missed at a fixed 5% false-review budget."
@@ -36,11 +43,11 @@ verifier with AUROC 0.96 still misses errors at a 5%-flag budget, but those erro
 | Structured **FATURA** (synthetic) | **0.9934** → 0.994 ✓ | ~100% | **~0%** | [0, 0] |
 | Structured **VRDU** all (real) | **0.8963** → 0.896 ✓ | 75% | **2.6%** | [1.4, 4.1] |
 | Structured **VRDU** excl-signer | **0.9272** → 0.927 ✓ | 78% | **1.2%** | [0.4, 2.4] |
-| Unstructured **FCC** | 0.893 → 0.897* | 92.6% | **5.6%** (1/18) | — |
-| Unstructured **S1** | 0.958 → 0.960 ✓ | 83.8% | **0.0%** (0/293) | — |
-| Unstructured **Charities** | 0.711 → 0.713 ✓ | 72.9% | **8.1%** (7/86) | — |
-| Unstructured **pooled** | 0.955 | 83.1% | **2.0%** (8/397) | — |
-| Tables **RD-TableBench** | 0.872 (bad-catch 0.835) | 83.5% | **10.6%** | [6.5, 15.2] |
+| Unstructured **FCC** | 0.893 → 0.897* | 100% | **0.0%** (0/18) | — |
+| Unstructured **S1** | 0.958 → 0.960 ✓ | 84.3% | **0.0%** (0/293) | — |
+| Unstructured **Charities** | 0.711 → 0.713 ✓ | 76.6% | **7.0%** (6/86) | — |
+| Unstructured **pooled** | 0.955 | 84.0% | **1.5%** (6/397) | — |
+| Tables **RD-TableBench** | 0.872 (bad-catch 0.835) | 83.5% | **10.6%** | [5.8, 17.1] |
 | Tables **ParseBench** | 0.918 → 0.912* | ~100% | **~0%** | — |
 
 \* tiny gaps (FCC 0.893 vs 0.897; ParseBench 0.918 vs 0.912) are AUROC tie-handling in my
@@ -50,15 +57,15 @@ estimator vs the paper script — not a config difference. All other numbers mat
 "all-errors" frontier conflated two things: (a) the verifier confidently accepting a wrong
 *value* (the real blind spot), and (b) the **extractor outputting EMPTY** on a present-GT field
 (an extractor-recall failure — no value to verify). Separating them: of the Signal
-confidently-wrong cases, **26 were extractor-empty misses** and only **8 were genuine wrong
-values**. So the genuine blind spot is **~2% pooled, S1 = 0%, Charities ≈ 8%** (the earlier
+confidently-wrong cases, **26 were extractor-empty misses** and only **6 were genuine wrong
+values**. So the genuine blind spot is **~1.5% pooled, S1 = 0%, FCC = 0%, Charities ≈ 7%** (the earlier
 "Charities 18%" was ⅔ extractor-empties). The extractor-empty misses are reported separately as
 an extractor-recall observation, not a verifier blind spot.
 
-**Headline (H5):** the verifier catches most errors (caught@deployed 73–100%); the residual it
-misses — **~0%** (FATURA, ParseBench), **0–8%** on fields (S1 0%, FCC/VRDU 1–6%, Charities 8%),
+**Headline (H5):** the verifier catches most errors (caught@deployed 75–100%); the residual it
+misses — **~0%** (FATURA, ParseBench), **0–7%** on fields (S1 0%, FCC 0%, VRDU 1–3%, Charities 7%),
 **10.6%** on RD tables — is **undetectable under our zero-extra-call evidence, but NOT fundamentally
-undetectable** (adjudication: 0/31 cases are source-ambiguous; the information is in the document).
+undetectable** (adjudication: 0/29 cases are source-ambiguous; the information is in the document).
 It is a **cost/coverage frontier** — catchable with more evidence — and the system flags it as
 INSUFFICIENT rather than falsely verifying. (See §5b "H5 frontier — source-ambiguity adjudication".)
 
@@ -85,9 +92,9 @@ INSUFFICIENT rather than falsely verifying. (See §5b "H5 frontier — source-am
 | family | n | caught | reading |
 |---|---|---|---|
 | source-absent (hallucination) | 47 | **1.000** | value not in the doc → always caught |
-| wrong-value-in-source | 313 | 0.949 | a real doc value, wrong field → mostly caught |
-| missing (empty output) | 944 | 0.787 | extractor emitted nothing → verifier lenient on empties |
-| cross-field-copy | 30 | **0.733** | a *valid* value from the wrong field — the hardest field tail |
+| wrong-value-in-source | 313 | 0.968 | a real doc value, wrong field → mostly caught |
+| missing (empty output) | 944 | 0.789 | extractor emitted nothing → verifier lenient on empties |
+| cross-field-copy | 30 | **0.833** | a *valid* value from the wrong field — the hardest non-empty field tail |
 
 **Structured fields — VRDU (real docs; FATURA is omitted — frontier ~0 so its map is a degenerate
 all-~100%):**
@@ -169,8 +176,8 @@ optional and not run.
 
 ### H5 frontier — source-ambiguity adjudication (is the residual *fundamentally* uncatchable?)
 Per spec, the genuinely-uncatchable cases are reported as an adjudicated **source-ambiguous**
-subset, not asserted as impossibility. Adjudicating all **31** confidently-wrong cases (RD 23 +
-Signal 8): **0 are source-ambiguous** — for every one, the information needed to catch it is
+subset, not asserted as impossibility. Adjudicating all **29** confidently-wrong cases (RD 23 +
+Signal 6): **0 are source-ambiguous** — for every one, the information needed to catch it is
 present in the document (Signal: the correct value is in the doc text; RD: the dropped rows /
 mangled structure are visibly present in the legible image). So the frontier is **undetectable
 under the zero-extra-call evidence, but NOT fundamentally undetectable — it is a cost/coverage
@@ -181,7 +188,7 @@ surface-indistinguishable from a correct output.* (`analysis/adj_crops/`.)
 ### E6 — shift (reuse of existing slices)
 Frontier under distribution shift (reconciled numbers):
 - **synthetic → real documents:** FATURA frontier ~0% → VRDU **2.6%**.
-- **clean → noisy domain:** Signal S1 **0%** → Charities **8%** value-verification blind spot.
+- **clean → noisy domain:** Signal S1 **0%** → Charities **7%** value-verification blind spot.
 - The verifier degrades **gracefully** (range ~0–10.6%), not catastrophically.
 (Extractor-swap shift is out of scope — a new extraction run; future work.)
 

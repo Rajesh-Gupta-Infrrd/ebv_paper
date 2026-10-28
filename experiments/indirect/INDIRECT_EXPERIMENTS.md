@@ -12,6 +12,11 @@ before any indirect number is computed.**
 > (caught@deployed, frontier, RD CI), the §4 Signal detectability map, and the §5b frontier counts now
 > reflect `accept_3t`. The **E4c** 5%-false-review-budget decomposition (§5b) is a separate
 > single-channel analysis and keeps its own budget framing.
+>
+> **Structured legs, paper reporting (2026-10-28):** Table 1 of the paper reports the **end-to-end**
+> structured AUROC — all present fields, with fields the verifier cannot score counted as
+> lowest-trust: **FATURA 0.95, VRDU 0.92**. The §2 table rows below (FATURA 0.994, VRDU 0.896/0.927)
+> are the **scored-field (localized)** AUROCs; frontier and CI columns are unchanged.
 
 ## 0. Metric correction (important — read first)
 

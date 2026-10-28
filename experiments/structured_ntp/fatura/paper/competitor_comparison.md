@@ -29,6 +29,11 @@ wrong-value (C) cases are kept as errors — no inflation.** Numbers from
 in earlier drafts was against the cleaned GT; against raw GT the same strict-exact is 0.865. The
 A-handled 0.994 is the fair capability number.)*
 
+> **Paper reporting (2026-10-28):** the 0.994 above is the **scored-field (localized)** AUROC. The
+> paper's Table 1 reports the **end-to-end 0.95** (all present fields, unscored = lowest-trust) and
+> does **not** quote the Jin "parity," since end-to-end 0.95 is below Jin's 0.990–0.997. The
+> localized 0.994 is kept here as the conditional capability number only.
+
 ## Why strict exact understated us — FATURA error decomposition (present-field, 36,370 predictions)
 The spatial verifier checks *position only*. Strict exact-match, however, counted many **correct**
 values as errors. Decomposing the 10,806 strict "errors":

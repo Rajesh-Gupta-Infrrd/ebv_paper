@@ -5,15 +5,17 @@
   "n": 5970,
   "errors": 1018,
   "auroc": 0.95,
-  "coverage@5": 0.861
+  "coverage@5": 0.861,
+  "note": "ROI region learned from training folds (not test-doc gold box)"
  },
  {
   "type": "CD_tables",
   "leg": "ROI/structured",
   "n": 3300,
   "errors": 574,
-  "auroc": 0.947,
-  "coverage@5": 0.808
+  "auroc": 0.939,
+  "coverage@5": 0.808,
+  "note": "ROI region learned from training folds (not test-doc gold box)"
  },
  {
   "type": "AUS_DU",

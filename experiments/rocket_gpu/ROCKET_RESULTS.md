@@ -20,7 +20,13 @@ benchmarks, which makes this a well-powered test. CV-fused verifier (GroupKFold 
 | Doc type | Mode | n fields | errors (rate) | **AUROC** | coverage @≤5% risk |
 |---|---|---|---|---|---|
 | URLA (Form 1003) | Structured / ROI | 5970 | 1018 (17.1%) | **0.950** | 86% |
-| CD (Closing Disclosure) | Structured / ROI | 3300 | 574 (17.4%) | **0.947** | 81% |
+| CD (Closing Disclosure) | Structured / ROI | 3300 | 574 (17.4%) | **0.939** | 81% |
+
+> **ROI grounding note (2026-10-28):** the ROI spatial feature uses a region **learned from the
+> training folds** (per-field median gold box), not the test document's own gold box. Re-running
+> with the learned region vs. the earlier test-doc-box version changes AUROC by ≤0.005 (URLA
+> 0.952→0.954, CD 0.944→0.939), because URLA/CD are templated forms. Script:
+> `verify_rocket_roi_learned.py`.
 | AUS_DU (Desktop Underwriter) | Unstructured / Signal | 5970 | 1602 (26.8%) | **0.994** | 75% |
 | Bank statements | Unstructured / Signal | 1330 | 567 (42.6%) | **0.941** | 2% |
 | Credit report | Unstructured / Signal | 3204 | 1133 (35.4%) | **0.930** | 34% |

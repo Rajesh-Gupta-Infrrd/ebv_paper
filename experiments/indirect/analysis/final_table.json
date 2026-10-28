@@ -4,37 +4,40 @@
    "leg": "STRUCTURED FATURA (synthetic)",
    "gt": "raw+clean GT",
    "correctness": "exact field-aware + A-handled(keepB)",
-   "auroc": 0.9934,
    "caught": 1.0,
    "frontier": 0.0,
    "ci": [
     0.0,
     0.0
-   ]
+   ],
+   "auroc_end_to_end_paper": 0.9521,
+   "auroc_located_only": 0.9934
   },
   {
    "leg": "STRUCTURED VRDU all (real)",
    "gt": "VRDU clean GT",
    "correctness": "exact (list-any-match)",
-   "auroc": 0.8963,
    "caught": 0.75,
    "frontier": 0.026,
    "ci": [
     0.014,
     0.041
-   ]
+   ],
+   "auroc_end_to_end_paper": 0.9202,
+   "auroc_located_only": 0.8963
   },
   {
    "leg": "STRUCTURED VRDU excl-signer",
    "gt": "VRDU clean GT",
    "correctness": "exact (list-any-match)",
-   "auroc": 0.9272,
    "caught": 0.78,
    "frontier": 0.012,
    "ci": [
     0.004,
     0.024
-   ]
+   ],
+   "auroc_end_to_end_paper": 0.9387,
+   "auroc_located_only": 0.9272
   },
   {
    "leg": "UNSTRUCTURED Signal FCC",

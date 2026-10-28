@@ -53,6 +53,7 @@ def report(rows, label):
     errs = [x for x in rows if not x["correct"]]
     corrs = [x for x in rows if x["correct"]]
     au = auroc([(x["wv"], x["correct"]) for x in rows if x["wv"] is not None])
+    au_e2e = auroc([(x["wv"] if x["wv"] is not None else 0.0, x["correct"]) for x in rows])  # PAPER headline
     caught = sum(1 for x in errs if not x["accept"])
     slip = sum(1 for x in errs if x["accept"])
     cw = [x["wv"] for x in corrs if x["wv"] is not None]; cw.sort()
@@ -69,7 +70,9 @@ def report(rows, label):
         fr = sum(1 for y in e if y["accept"] and y["wv"] is not None and y["wv"] >= cut)
         vals.append(fr/len(e))
     vals.sort(); ci = (round(vals[int(.025*len(vals))], 3), round(vals[int(.975*len(vals))], 3)) if vals else (None, None)
-    d = {"label": label, "n": len(rows), "errors": len(errs), "AUROC": round(au, 4) if au else None,
+    d = {"label": label, "n": len(rows), "errors": len(errs),
+         "AUROC_end_to_end_PAPER": round(au_e2e, 4) if au_e2e else None,
+         "AUROC": round(au, 4) if au else None,
          "caught_rate": round(caught/max(len(errs), 1), 3), "slip_rate": round(slip/max(len(errs), 1), 3),
          "FRONTIER_confidently_wrong": round(frontier/max(len(errs), 1), 3), "frontier_n": frontier,
          "frontier_CI": list(ci)}

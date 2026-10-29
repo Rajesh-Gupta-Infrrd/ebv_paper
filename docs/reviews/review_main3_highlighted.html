@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>main(3) review — highlighted</title>
+<meta name="description" content="Review of main(3): Related Work and Method, with the change-spots highlighted on the actual paragraphs.">
+<style>
+  :root{ --bg:#fff; --ink:#1a1a1a; --muted:#555; --rule:#d8d8d8; --box:#f7f7f4;
+    --cut:#ffd4d4; --cutink:#a11; --flag:#fff3b0; --add:#d7f2d7; --addink:#176117;
+    --serif:"Iowan Old Style",Palatino,Georgia,"Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+    --bg:#14161a; --ink:#e8e6e1; --muted:#a7a29a; --rule:#333; --box:#1b1e24;
+    --cut:#5a2323; --cutink:#ffb3b3; --flag:#5a4e1e; --add:#1f4023; --addink:#9fe0a6;}}
+  *{box-sizing:border-box} body{background:var(--bg);color:var(--ink);font-family:var(--serif);
+    line-height:1.6;margin:0;font-size:17px;}
+  .page{max-width:800px;margin:0 auto;padding:48px 22px 90px;}
+  h1{font-size:25px;border-bottom:2px solid var(--ink);padding-bottom:12px;}
+  h2{font-size:19px;margin-top:34px;border-bottom:1px solid var(--rule);padding-bottom:4px;}
+  h3{font-size:16px;margin-top:22px;color:var(--muted);font-family:var(--sans);}
+  p{margin:0 0 12px;}
+  .para{background:var(--box);border:1px solid var(--rule);border-radius:6px;padding:14px 18px;margin:12px 0;}
+  .cut{background:var(--cut);color:var(--cutink);border-radius:3px;padding:0 2px;text-decoration:line-through;}
+  .flag{background:var(--flag);border-radius:3px;padding:0 2px;}
+  .add{background:var(--add);color:var(--addink);border-radius:3px;padding:0 2px;font-weight:600;}
+  .fix{font-family:var(--sans);font-size:14.5px;margin:6px 0 2px;}
+  .fix b{color:var(--addink);}
+  .legend{font-family:var(--sans);font-size:13.5px;color:var(--muted);margin:8px 0 18px;}
+  .legend span{padding:1px 6px;border-radius:3px;}
+  .note{font-family:var(--sans);font-size:14px;background:var(--box);border-left:3px solid var(--addink);
+    padding:10px 14px;border-radius:0 5px 5px 0;margin:16px 0;}
+  @media(max-width:560px){body{font-size:16px}.page{padding:30px 15px 60px}}
+</style>
+</head>
+<body>
+<main class="page">
+<h1>Review of main(3): Related Work &amp; Method</h1>
+<p class="legend">
+  <span class="flag">yellow</span> = reword &nbsp;
+  <span class="cut">red strike</span> = cut / missing &nbsp;
+  <span class="add">green</span> = suggested text
+</p>
+
+<h2>Related Work — last sentence (clunky)</h2>
+<div class="para">
+Most of the document-verification methods above cover one output type, rely mainly on the
+extraction models' own uncertainty or call another large model for a stronger check. EBV
+instead gives fields and tables a shared accept-or-route decision, using document evidence
+suited to each output type <span class="flag">and, for fields, historical priors,</span>
+without another generative-model call.
+</div>
+<p class="fix"><b>Suggested:</b> …EBV instead gives fields and tables a shared accept-or-route
+decision, <span class="add">computed from document evidence (and, for fields, historical
+priors) without</span> another generative-model call.</p>
+
+<h2>Method §3.1 — Accept or route</h2>
+<div class="para">
+A pipeline reads a document and <span class="flag">returns units</span>. A unit is either a
+field (key–value) or a table (HTML grid). For each unit, <span class="flag">EBV outputs accept,
+meaning it is processed automatically, or route, meaning it goes to a reviewer.</span> A
+document is accepted only if all its units <span class="cut">are</span>, so one doubtful value
+<span class="flag">sends</span> the whole document for review. <span class="flag">An upstream
+label says whether a document is structured, and EBV does no classification of its own. Tables
+go to Table-Trust, fields in structured documents go to ROI and all other fields go to
+Signal.</span>
+</div>
+<p class="fix">1. "returns units" → <span class="add">"returns its outputs as units."</span></p>
+<p class="fix">2. make the decision explicit → <span class="add">"EBV returns one of two
+decisions: accept (processed automatically) or route (sent to a reviewer)."</span></p>
+<p class="fix">3. missing word: "…only if all its units are" → <span class="add">"…are
+accepted."</span></p>
+<p class="fix">4. verb mismatch: "sends" → <span class="add">"routes"</span> (match "route").</p>
+<p class="fix">5. reads as separate systems; lead with no-classification → <span class="add">"EBV
+does no classification of its own; an upstream label marks each document as structured or not,
+and that label determines how each unit is routed: tables to Table-Trust, fields in structured
+documents to ROI, and all other fields to Signal."</span></p>
+
+<h2>Method §3.3 — Unstructured fields (Signal)</h2>
+<div class="para">
+The Signal verifier combines cheap signals computed from the extracted value, the page text,
+the other extracted fields and statistics learned from labelled history.
+<span class="flag">None needs a generative model or another OCR pass.</span>
+<span class="flag">Format validity checks that the value has the right form for its field.
+Value-in-text checks that it appears on the page.</span> Keyword context, source context and
+label–value distance check that the words around it and its position fit the field.
+Cross-field copy flags a value repeated from another field, and some domains add a
+partial-extraction or type-mismatch signal. <span class="flag">Two more features describe
+emptiness. One says whether the value is empty, and the other is the field's historical empty
+rate, the field prior.</span> For each document type, a random forest and a gradient-boosted
+classifier are trained offline on these features, and the one with higher accuracy on a
+held-out part of the labelled training data is used<span class="cut">, so test data play no
+part in the choice</span>. Its probability is the field's trust score. …
+</div>
+<p class="fix">4. combine → <span class="add">"…statistics learned from labelled history, none
+of which needs a generative model or another OCR pass."</span></p>
+<p class="fix">5. add a lead-in + list cleanly → <span class="add">"The signals are: format
+validity, that the value has the right form for its field; value-in-text, that it appears on
+the page; keyword context, source context and label–value distance, that the surrounding
+words and position fit the field; and cross-field copy, that a value is repeated from another
+field."</span> &nbsp; and tighten emptiness → <span class="add">"Two features describe
+emptiness: whether the value is empty, and the field's historical empty rate (the field
+prior)."</span></p>
+<p class="fix">6. cut the last clause — "a held-out part of the labelled training data" already
+implies it.</p>
+
+<h2>Experimental Setup §Correctness labels — wording OK, ordering clumsy</h2>
+<p class="fix">Wording is fine; the problem is <b>order</b> (yellow = out of place). The
+paragraph goes public → scalar → proprietary → back to public (FATURA) → tables.</p>
+<div class="para">
+To evaluate EBV, each extracted value is labelled correct or incorrect by comparing it with
+the dataset's gold value. Structured fields are compared by field-aware exact match.
+Unstructured fields are compared by normalised bidirectional containment, which accepts
+formatting differences and shortened forms such as "12 Main St" and "12 Main Street".
+<span class="flag">On the unstructured benchmarks we evaluate scalar key–value fields.</span>
+<span class="flag">On the proprietary corpus the gold value is the production system's finalised
+value, corrected by a person where needed.</span> <span class="flag">On FATURA, exact match
+marks some correctly located values as wrong because only their formatting differs. We count
+these as correct, and Appendix A gives the strict result.</span> A table is labelled GOOD if
+its HTML is faithful to the table in the page image and BAD if values are fused, truncated or
+dropped. On RD-TableBench, whose own ground truth is often wrong, each table was judged against
+its page crop.
+</div>
+<p class="fix"><b>Suggested order</b> (fields first, then tables):</p>
+<ol class="fix">
+  <li><span class="add">For fields, exact match (structured) / bidirectional containment
+  (unstructured).</span></li>
+  <li><span class="add">Gold source as a pair: "On the public benchmarks the gold value is the
+  dataset label; on the proprietary corpus it is the production system's finalised value,
+  human-corrected where needed."</span></li>
+  <li><span class="add">FATURA exact-match caveat — kept with the public discussion (before
+  proprietary).</span></li>
+  <li><span class="add">Scalar fields, with a reason: "…scalar key–value fields, the single
+  values a containment check can score."</span></li>
+  <li><span class="add">Then tables (GOOD/BAD, RD-TableBench crop).</span></li>
+</ol>
+<p class="fix">Either reorder yours like this (same wording), or take the GT paragraph from
+<b>_best.md</b> — same simple wording as main(2), only the ordering changed.</p>
+
+<h2>Setup §Splits and training — two small misses</h2>
+<div class="para">
+…ROI and the Signal verifier are trained per document type, so each new type needs labelled
+data. Table-Trust's weights and threshold were set on production mortgage tables
+<span class="cut">and applied to RD-TableBench unchanged</span>. We evaluate each field and
+table separately…
+</div>
+<p class="fix">1. <b>Split</b> "Splits and training" into "<b>Splits.</b>" and "<b>Training.</b>"
+— they're different things (how the data is divided vs. how the models are trained), so a split
+reads cleaner and more professional. Deepak also advised not to combine different things.</p>
+<p class="fix">2. Cut "<span class="cut">and applied to RD-TableBench unchanged</span>" —
+"unchanged" / "without re-tuning" read defensive and <b>negative</b>. Drop such wording
+<b>everywhere it appears</b>, not just here.</p>
+
+<h2>Results — numbers correct; prose/readability fixes only</h2>
+<h3>§5.1 Fields</h3>
+<div class="para">
+Wherever a baseline can be measured on the same outputs, EBV ranks correct above incorrect
+extractions better than the signals the pipeline <span class="flag">has</span> without an extra
+model call (Table 1). The strongest such baseline reaches <span class="flag">0.63, the per-field
+prior on S-1,</span> and value-in-source reaches 0.53–0.59. On FCC, published token-logprob
+results lie at 0.59–0.64. …
+</div>
+<p class="fix">1. "has" → <span class="add">"exposes"</span> (minor).</p>
+<p class="fix">2. the commas read like a 3-item list → <span class="add">"0.63 (the per-field
+prior, on S-1)"</span>.</p>
+
+<h3>§5.2 Tables</h3>
+<div class="para">
+On RD-TableBench we use the weights and the threshold of 85 set on production mortgage
+tables<span class="cut">, without re-tuning</span>. On the full 460-table set (78% defective),
+the verifier routes 90% of defective tables. …
+</div>
+<p class="fix">3. Cut "without re-tuning" — defensive/negative, same as "unchanged". Apply
+everywhere.</p>
+
+<h3>§5.3 Proprietary production data</h3>
+<div class="para">
+…<span class="flag">On fields</span> the extractor is wrong on 17–43% of values… <span
+class="flag">On loan applications</span> 86% of fields are auto-accepted, but on bank statements,
+where the extractor is wrong 43% of the time, only 2% are. Ranking stays strong there, yet
+little can be auto-accepted<span class="flag">, the gap between capability and coverage</span>. …
+</div>
+<p class="fix">4. add commas: <span class="add">"On fields,"</span> / <span class="add">"On loan
+applications,"</span> (minor).</p>
+<p class="fix">5. dangling appositive → <span class="add">"…yet little can be auto-accepted,
+opening a gap between capability and coverage."</span></p>
+
+<h2>Analysis §6 — para 2 ordering (good content, poor order)</h2>
+<p class="fix">Numbers correct; paras 1 &amp; 3 fine. Only para 2 ("the empty-field prior carries
+the most weight"): the result is stated <b>before</b> the method, and the S-1 scope dangles.</p>
+<div class="para">
+On free-form fields, the empty-field prior carries the most weight. Removing the empty-field
+prior lowers AUROC from 0.957 to 0.654 (Δ0.30), more than removing any content signal. Many
+extractor errors are empty outputs on fields that are usually filled (944 of 1,334 Signal
+errors). <span class="flag">This comes from a drop-one ablation on a surrogate tabular
+classifier that reproduces the deployed Signal probabilities. About 95% of its instances are
+S-1, so the result describes S-1.</span> <span class="flag">The content signals are each
+informative but overlap heavily. Dropping any single one costs ≈0 AUROC, since the others cover
+for it.</span> We therefore credit the content signals only for what they add on top of this
+cheap prior. <span class="flag">The claim has limits. On FCC and Charities the prior has no
+usable variance (Table 1), so the 0.90 and 0.71 there come from content.</span>
+</div>
+<p class="fix"><b>Suggested order</b> (method → scope → result → interpretation):</p>
+<ol class="fix">
+  <li><span class="add">"We ran a drop-one ablation on a surrogate tabular classifier that
+  reproduces the deployed Signal probabilities; about 95% of its instances are S-1, so the
+  result describes S-1."</span> (method + scope first)</li>
+  <li><span class="add">"Removing the empty-field prior lowers AUROC from 0.957 to 0.654
+  (Δ0.30), more than any content signal, because many extractor errors are empty outputs on
+  fields that are usually filled (944 of 1,334 Signal errors)."</span></li>
+  <li><span class="add">"The content signals are each informative but overlap heavily: dropping
+  any single one costs ≈0 AUROC, since the others cover for it."</span></li>
+  <li><span class="add">"We credit content signals for what they add on top of this prior. The
+  claim has limits: on FCC and Charities the prior has no usable variance, so the 0.90 and 0.71
+  there come from content."</span></li>
+</ol>
+<p class="fix">My <b>_best.md</b> para 2 is already in this order — same facts/numbers, just
+method-first and less choppy. Use it if you agree; ignore if not (flow only).</p>
+
+<div class="note">
+I've already applied all of these Method, GT, Results and Analysis fixes in my version
+(<b>_best.md</b>) — it is mostly yours, same simple wording, with these manual fixes and the
+ordering cleaned up. The cleanest path is to take the <b>Method</b>, <b>Correctness-labels</b>,
+<b>Results</b> and <b>§6 para 2</b> from <b>_best.md</b> directly. (Numbers, tables and figures
+were already correct.)
+</div>
+</main>
+</body>
+</html>
